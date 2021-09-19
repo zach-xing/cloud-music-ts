@@ -1,10 +1,17 @@
-import * as routes from './routes'
+import Routes from "./routes";
+import { BrowserRouter } from "react-router-dom";
+
+// redux 相关
+import { Provider } from "react-redux";
+import store from './store';
 
 function App() {
   return (
-    <div>
-      <h1>Hello</h1>
-    </div>
+    // <Provider store={store}>
+      <BrowserRouter>
+        <Routes />
+      </BrowserRouter>
+    // </Provider>
   );
 }
 

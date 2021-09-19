@@ -1,6 +1,6 @@
-import * as React from 'react';
+// import React, { useState } from "react";
 
-function Home() {
+const Home = () => {
   return (
     <div>
       <h1>Hello this is Home</h1>
