@@ -1,17 +1,15 @@
-import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 
 import Home from "../pages/Home";
-import Recommend from "../pages/Recommend";
+import Discover from "../pages/Discover";
 
 const routes = () => {
   return (
-    <BrowserRouter>
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route path="/recommend" component={Recommend} />
-        <Redirect to="/" />
-      </Switch>
-    </BrowserRouter>
+    <Switch>
+      <Route path="/discover" component={Discover} />
+      <Route path="/my" component={Home} />
+      <Redirect to="/discover" />
+    </Switch>
   );
 };
 
