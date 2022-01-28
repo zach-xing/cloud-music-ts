@@ -1,17 +1,28 @@
-import { BrowserRouter } from "react-router-dom";
-import Layout from './layout/BaseLayout'
+import { useState, memo } from "react";
 
-// redux 相关
-import { Provider } from "react-redux";
-import store from './store';
+// 有延迟的组件
+const ExpensiveRender = memo(() => {
+  const now = performance.now();
+  while (performance.now() - now < 100) {
+    // 模拟一个延迟
+  }
+  console.log("渲染了一个有延迟的组件");
+  return <h3>ExpensiveRender 组件</h3>;
+});
 
 function App() {
+  const [color, setColor] = useState("red");
+
   return (
-    // <Provider store={store}>
-    <BrowserRouter>
-      <Layout />
-    </BrowserRouter>
-    // </Provider>
+    <div style={{ color: color }}>
+      <input
+        type="text"
+        value={color}
+        onChange={(e) => setColor(e.target.value)}
+      />
+      <p>Hello, World!</p>
+      <ExpensiveRender />
+    </div>
   );
 }
 

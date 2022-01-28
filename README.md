@@ -1,28 +1,46 @@
-# cloud-music
+# Getting Started with Create React App
 
-## 开发过程
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-### 安装依赖
-- 使用 `npx create-react-app cloud-music --template typescript` 快速生成项目（使用typescript）
+## Available Scripts
 
-- `npm install --save react-router-dom @types/react-router-dom`
-- `npm install redux react-redux @types/react-redux --save`
-这两个就不用介绍了
+In the project directory, you can run:
 
-然后就是构建 [routes](https://github.com/ZiKng-Coding/cloud-music-ts/blob/master/src/routes/index.tsx) 和 store
-之后在 `App.tsx` 中引入这两个
+### `npm start`
 
-因为项目中使用的使用 scss，所以安装 `npm install -D node-sass`
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-使用 `npm install axios` 安装，这个也不用多说了
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
 
-### 构建布局
+### `npm test`
 
-在 src 下创建 layout 文件夹并创建 `BaseLayout.tsx` 并进行开发
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### 首页的开发
+### `npm run build`
 
-- 首先开发轮播图 `npm install swiper -S`
-如果还是不能使用就安装 `npm i --save-dev @types/swiper`
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### `npm run eject`
+
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
