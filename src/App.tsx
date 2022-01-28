@@ -1,28 +1,25 @@
-import { useState, memo } from "react";
-
-// 有延迟的组件
-const ExpensiveRender = memo(() => {
-  const now = performance.now();
-  while (performance.now() - now < 100) {
-    // 模拟一个延迟
-  }
-  console.log("渲染了一个有延迟的组件");
-  return <h3>ExpensiveRender 组件</h3>;
-});
+import { Routes, Route } from "react-router-dom";
+import { ThemeProvider } from "styled-components";
+import { useStores } from "./store";
+import Home from "./pages/Home";
+import Discover from "./pages/Discover";
+import Library from "./pages/Library";
+import Header from "./components/Header";
 
 function App() {
-  const [color, setColor] = useState("red");
+  const { themeStore } = useStores();
 
   return (
-    <div style={{ color: color }}>
-      <input
-        type="text"
-        value={color}
-        onChange={(e) => setColor(e.target.value)}
-      />
-      <p>Hello, World!</p>
-      <ExpensiveRender />
-    </div>
+    <ThemeProvider theme={themeStore.theme}>
+      <Header />
+      <main>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="discover" element={<Discover />} />
+          <Route path="library" element={<Library />} />
+        </Routes>
+      </main>
+    </ThemeProvider>
   );
 }
 
