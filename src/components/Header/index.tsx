@@ -1,5 +1,5 @@
 import { useLocation } from "react-router-dom";
-import { HeaderBlock, Nav, NavLink } from "./Header.style";
+import { HeaderBlock, Nav, NavLink, SearchInput, Avatar } from "./Header.style";
 
 // 路由信息
 const routes = [
@@ -33,7 +33,10 @@ const Header = () => {
           </NavLink>
         ))}
       </Nav>
-      <div></div>
+      <div style={{display: "flex", alignItems: "center"}}>
+        <SearchInput placeholder="搜索" />
+        <Avatar>更多</Avatar>
+      </div>
     </HeaderBlock>
   );
 };

@@ -1,7 +1,12 @@
 import React from "react";
+import PersonalizedBlock from "./PersonalizedBlock";
 
 const Home = () => {
-  return <div></div>;
+  return (
+    <>
+      <PersonalizedBlock title="推荐音乐" />
+    </>
+  );
 };
 
 export default Home;
