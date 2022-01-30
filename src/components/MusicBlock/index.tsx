@@ -6,8 +6,13 @@ interface IProps {
   picUrl: string;
 }
 
-const MusicBlock: React.FC<IProps> = () => {
-  return <Block>Hello sdf</Block>;
+const MusicBlock: React.FC<IProps> = (props: IProps) => {
+  return (
+    <Block>
+      <img src={props.picUrl} alt={props.name} />
+      <p>{props.name}</p>
+    </Block>
+  );
 };
 
 export default MusicBlock;

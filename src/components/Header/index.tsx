@@ -26,7 +26,7 @@ const Header = () => {
         {routes.map((item) => (
           <NavLink
             href={item.href}
-            id={item.href}
+            key={item.href}
             className={pathname === item.href ? "active" : ""}
           >
             {item.name}

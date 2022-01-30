@@ -1,6 +1,5 @@
 import { styled } from "@mui/material";
 
-
 export const HeaderBlock = styled("div")({
   display: "flex",
   justifyContent: "space-between",
@@ -13,12 +12,12 @@ export const HeaderBlock = styled("div")({
   left: "0",
   right: "0",
   zIndex: "100",
-  backgroundColor: "rgba(34,34,34,0.86)",
+  backgroundColor: "rgb(34,34,34)",
   color: "#000",
 });
 
 export const Nav = styled("nav")({
-  display: "flex"
+  display: "flex",
 });
 
 export const NavLink = styled("a")({
@@ -30,11 +29,11 @@ export const NavLink = styled("a")({
   padding: "10px",
   borderRadius: "10px",
   "&.active": {
-    color: "#335eea"
+    color: "#335eea",
   },
   "&:hover": {
     backgroundColor: "hsla(0,0%,100%,0.08)",
-  }
+  },
 });
 
 // 搜索框
@@ -52,4 +51,4 @@ export const Avatar = styled("div")({
   color: "#fff",
   fontSize: "16px",
   cursor: "pointer",
-})
+});
