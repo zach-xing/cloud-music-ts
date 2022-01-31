@@ -32,7 +32,7 @@ const PersonalizedBlock = (props: IProps) => {
       <MusicLine>
         {result.map((item) => {
           return (
-            <MusicBlock key={item.id} name={item.name} picUrl={item.picUrl} />
+            <MusicBlock key={item.id} blockWidth={"18%"} name={item.name} picUrl={item.picUrl} />
           );
         })}
       </MusicLine>

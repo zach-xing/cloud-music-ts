@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react";
-import { MusicLine } from "./Home.style";
 import MusicBlock from "../../components/MusicBlock";
+import { MusicLine } from "./Home.style";
 
 /** ForYouBlock 的 props 类型 */
 interface IProps {
@@ -15,11 +14,22 @@ const defaultCovers = [
 
 /** For You 板块 */
 const ForYouBlock = (props: IProps) => {
-
   return (
     <>
       <h2>{props.title}</h2>
       <MusicLine>
+        <MusicBlock
+          picUrl={
+            "https://p2.music.126.net/0-Ybpa8FrDfRgKYCTJD8Xg==/109951164796696795.jpg"
+          }
+          blockWidth={"47%"}
+        />
+        <MusicBlock
+          picUrl={
+            "https://p2.music.126.net/QxJA2mr4hhb9DZyucIOIQw==/109951165422200291.jpg"
+          }
+          blockWidth={"47%"}
+        />
       </MusicLine>
     </>
   );

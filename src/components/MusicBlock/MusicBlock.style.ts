@@ -1,7 +1,11 @@
-import { styled } from "@mui/material";
+import { styled } from "@mui/material/styles";
 
-export const Block = styled("div")({
-  width: "18%",
+interface IBlockProps {
+  width: string;
+}
+
+export const Block = styled("div")<IBlockProps>((props: IBlockProps) => ({
+  width: props.width,
   borderRadius: "15px",
   marginBottom: "15px",
   img: {
@@ -18,4 +22,4 @@ export const Block = styled("div")({
       textDecoration: "underline",
     },
   },
-});
+}));
