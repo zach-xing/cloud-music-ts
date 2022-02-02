@@ -2,18 +2,19 @@ import { styled } from "@mui/material/styles";
 
 interface IBlockProps {
   width: string;
+  isround: boolean;
 }
 
 export const Block = styled("div")<IBlockProps>((props: IBlockProps) => ({
   width: props.width,
-  borderRadius: "15px",
+  borderRadius: props.isround ? "100%" : "15px",
   marginBottom: "15px",
   img: {
     width: "100%",
-    borderRadius: "15px",
+    borderRadius: props.isround ? "100%" : "15px",
     cursor: "pointer",
     ":hover": {
-      boxShadow: "0 0 20px #fff",
+      boxShadow: "0 0 10px #fff",
     },
   },
   p: {

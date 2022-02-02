@@ -3,11 +3,6 @@ import { MusicLine } from "./Home.style";
 import MusicBlock from "../../components/MusicBlock";
 import { fetchPersonalized } from "../../api/home";
 
-/** Props 类型 */
-interface IProps {
-  title: string;
-}
-
 /** 获取数据元素的类型 */
 interface IResult {
   id: number;
@@ -15,24 +10,29 @@ interface IResult {
   picUrl: string;
 }
 
-/** 推荐音乐 */
-const PersonalizedBlock = (props: IProps) => {
+/** 热门推荐音乐 */
+const PersonalizedBlock = () => {
   const [result, setResult] = useState<IResult[]>([]);
 
   useEffect(() => {
     fetchPersonalized().then((res) => {
-      console.log(res.data.result);
       setResult(res.data.result);
     });
   }, []);
 
   return (
     <>
-      <h2>{props.title}</h2>
+      <h2>推荐音乐</h2>
       <MusicLine>
         {result.map((item) => {
           return (
-            <MusicBlock key={item.id} blockWidth={"18%"} name={item.name} picUrl={item.picUrl} />
+            <MusicBlock
+              key={item.id}
+              blockWidth={"18%"}
+              name={item.name}
+              picUrl={item.picUrl}
+              isRound={false}
+            />
           );
         })}
       </MusicLine>

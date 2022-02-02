@@ -23,12 +23,14 @@ const ForYouBlock = (props: IProps) => {
             "https://p2.music.126.net/0-Ybpa8FrDfRgKYCTJD8Xg==/109951164796696795.jpg"
           }
           blockWidth={"47%"}
+          isRound={false}
         />
         <MusicBlock
           picUrl={
             "https://p2.music.126.net/QxJA2mr4hhb9DZyucIOIQw==/109951165422200291.jpg"
           }
           blockWidth={"47%"}
+          isRound={false}
         />
       </MusicLine>
     </>
