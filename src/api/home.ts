@@ -29,3 +29,13 @@ export function fetchAlbum() {
     method: "GET",
   });
 }
+
+/**
+ * 获取排行榜信息
+ */
+export function fetchTopList() {
+ return request({
+   url: "/toplist",
+   method: "GET",
+ });
+}

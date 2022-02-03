@@ -1,38 +1,25 @@
-import MusicBlock from "../../components/MusicBlock";
-import { MusicLine } from "./Home.style";
-
-/** ForYouBlock 的 props 类型 */
-interface IProps {
-  title: string;
-}
+import { ForYoudiv } from "./Home.style";
 
 const defaultCovers = [
   "https://p2.music.126.net/0-Ybpa8FrDfRgKYCTJD8Xg==/109951164796696795.jpg",
   "https://p2.music.126.net/QxJA2mr4hhb9DZyucIOIQw==/109951165422200291.jpg",
   "https://p1.music.126.net/AhYP9TET8l-VSGOpWAKZXw==/109951165134386387.jpg",
 ];
+let coverIndex: number = Math.floor(Math.random() * 3);
 
-/** For You 板块 */
-const ForYouBlock = (props: IProps) => {
+/** For You 板块，也就是每日推荐 */
+const ForYouBlock = () => {
   return (
     <>
-      <h2>{props.title}</h2>
-      <MusicLine>
-        <MusicBlock
-          picUrl={
-            "https://p2.music.126.net/0-Ybpa8FrDfRgKYCTJD8Xg==/109951164796696795.jpg"
-          }
-          blockWidth={"47%"}
-          isRound={false}
-        />
-        <MusicBlock
-          picUrl={
-            "https://p2.music.126.net/QxJA2mr4hhb9DZyucIOIQw==/109951165422200291.jpg"
-          }
-          blockWidth={"47%"}
-          isRound={false}
-        />
-      </MusicLine>
+      <ForYoudiv>
+        <div className="title">
+          <span>每</span>
+          <span>日</span>
+          <span>推</span>
+          <span>荐</span>
+        </div>
+        <img src={defaultCovers[coverIndex]} alt="每日推荐" />
+      </ForYoudiv>
     </>
   );
 };
