@@ -1,9 +1,8 @@
-import React from "react";
-import ForYouBlock from "./ForYouBlock"
-import PersonalizedBlock from "./PersonalizedBlock";
-import HotArtists from "./HotArtists";
-import NewAlbum from "./NewAlbum";
-import TopList from "./TopList";
+import ForYouBlock from "./components/ForYouBlock"
+import PersonalizedBlock from "./components/PersonalizedBlock";
+import HotArtists from "./components/HotArtists";
+import NewAlbum from "./components/NewAlbum";
+import TopList from "./components/TopList";
 
 const Home = () => {
   return (

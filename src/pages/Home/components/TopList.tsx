@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { MusicLine } from "./Home.style";
-import MusicBlock from "../../components/MusicBlock";
-import { fetchTopList } from "../../api/home";
+import { MusicLine } from "../Home.style";
+import MusicBlock from "../../../components/MusicBlock";
+import { fetchTopList } from "../../../api/home";
 
 interface IList {
   id: number;

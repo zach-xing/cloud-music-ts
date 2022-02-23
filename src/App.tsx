@@ -3,10 +3,9 @@ import Home from "./pages/Home";
 import Discover from "./pages/Discover";
 import Library from "./pages/Library";
 import Header from "./components/Header";
-import {Main} from "./App.style"
+import { Main } from "./App.style";
 
 function App() {
-
   return (
     <>
       <Header />

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { MusicLine } from "./Home.style";
-import MusicBlock from "../../components/MusicBlock";
-import { fetchPersonalized } from "../../api/home";
+import { MusicLine } from "../Home.style";
+import MusicBlock from "../../../components/MusicBlock";
+import { fetchPersonalized } from "../../../api/home";
 
 /** 获取数据元素的类型 */
 interface IResult {
