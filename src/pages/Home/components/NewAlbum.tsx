@@ -33,7 +33,7 @@ const NewAlbum = () => {
             name={item.name}
             picUrl={item.picUrl}
             blockWidth={"18%"}
-            isRound={false}
+            isround="false"
             notes={item.artist.name}
           />
         ))}

@@ -32,7 +32,7 @@ const TopList = () => {
               blockWidth={"18%"}
               name={item.name}
               picUrl={item.coverImgUrl}
-              isRound={false}
+              isround="false"
             />
           );
         })}

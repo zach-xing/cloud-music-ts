@@ -5,7 +5,7 @@ interface IProps {
   name?: string;
   picUrl: string; // 图片地址
   blockWidth: string; // 宽度
-  isRound: boolean; // 是否圆形显示
+  isround: string; // 是否圆形显示
   notes?: string; // 注释
 }
 /**
@@ -13,7 +13,7 @@ interface IProps {
  */
 const MusicBlock: React.FC<IProps> = (props: IProps) => {
   return (
-    <Block width={props.blockWidth} isround={props.isRound}>
+    <Block width={props.blockWidth} isround={props.isround}>
       <img src={props.picUrl} alt={props.name || "null"} />
       {props.name && <p style={{ textAlign: "center" }}>{props.name}</p>}
       {props.notes && (

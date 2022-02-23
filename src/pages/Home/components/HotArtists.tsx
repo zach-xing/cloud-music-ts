@@ -25,7 +25,7 @@ const HotArtists = () => {
       <h2>推荐歌手</h2>
       <MusicLine>
         {artists.map((item) => (
-          <MusicBlock key={item.picUrl} name={item.name} picUrl={item.picUrl} blockWidth={"15%"} isRound />
+          <MusicBlock key={item.picUrl} name={item.name} picUrl={item.picUrl} blockWidth={"15%"} isround="true" />
         ))}
       </MusicLine>
     </>

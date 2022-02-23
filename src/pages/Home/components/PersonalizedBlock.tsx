@@ -31,7 +31,7 @@ const PersonalizedBlock = () => {
               blockWidth={"18%"}
               name={item.name}
               picUrl={item.picUrl}
-              isRound={false}
+              isround="false"
             />
           );
         })}
