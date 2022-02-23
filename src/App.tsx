@@ -1,8 +1,7 @@
-import { Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import Discover from "./pages/Discover";
-import Library from "./pages/Library";
+import { Route, Switch } from "react-router-dom";
+import routes from "./routes";
 import Header from "./components/Header";
+import AuthRoute from "./components/AuthRoute";
 import { Main } from "./App.style";
 
 function App() {
@@ -10,11 +9,15 @@ function App() {
     <>
       <Header />
       <Main>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="discover" element={<Discover />} />
-          <Route path="library" element={<Library />} />
-        </Routes>
+        <Switch>
+          {routes.map((item) => {
+            if (item.meta && item.meta.isAuth) {
+              return <AuthRoute key={item.name} {...item} />;
+            } else {
+              return <Route exact key={item.name} {...item} />;
+            }
+          })}
+        </Switch>
       </Main>
     </>
   );
