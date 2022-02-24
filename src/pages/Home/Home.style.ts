@@ -34,8 +34,8 @@ export const ForYoudiv = styled.div`
     font-size: 50px;
     font-weight: bold;
     display: grid;
-    gird-template-columns: 1fr 1fr;
-    gird-gap: 10px;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
     z-index: 1;
   }
   /* 显示的图片滚动动画 */
