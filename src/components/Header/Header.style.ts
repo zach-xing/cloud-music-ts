@@ -1,4 +1,4 @@
-import { styled } from "@mui/material/styles";
+import styled from "styled-components";
 
 export const HeaderBlock = styled("div")({
   display: "flex",

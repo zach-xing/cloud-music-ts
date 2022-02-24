@@ -2,6 +2,7 @@
 
 说一下用到了那些库吧
 
-- mui
-- react-router-dom@6
+- styled-components
+- @types/styled-components (npm i --save-dev @types/styled-components)
+- react-router-dom@5
 - axios
