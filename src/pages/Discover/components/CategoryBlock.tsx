@@ -1,34 +1,60 @@
-import { useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import Tag from "../../../components/Tag";
-import { fetchCategories } from "../../../api/discover";
 import { CategoryStyleBlock } from "../discover.style";
+import { fetchCategories } from "../../../api/discover";
 
-interface ICategoryInfo {
-  all: any;
-  categories: any;
-  sub: any[];
+interface IProps {
+  categoryText: string;
+  setCategoryText: Dispatch<SetStateAction<string>>;
 }
 
 /**
  * 歌单分类组件
  */
-const CategoryBlock = () => {
-  const [categoryInfo, setCategoryInfo] = useState<ICategoryInfo | null>(null);
+const CategoryBlock = (props: IProps) => {
+  const [categoryInfo, setCategoryInfo] = useState<any>();
 
   useEffect(() => {
     (async () => {
-      const res = await fetchCategories();
-      console.log(res.data);
+      const { data } = await fetchCategories();
 
-      setCategoryInfo(res.data);
+      const info = [];
+      for (let index of Object.keys(data.categories)) {
+        info.push({
+          title: data.categories[index],
+          sub: data.sub.filter((item: any) => item.category === ~~index),
+        });
+      }
+      console.log(info);
+      
+      setCategoryInfo(info);
     })();
   }, []);
 
+  const changeCategoryText = (name: string) => {
+    console.log(name);
+    
+    props.setCategoryText(name);
+  }
+
   return (
     <CategoryStyleBlock>
-      <div className="line">
-        <h3>语法</h3>
-      </div>
+      {categoryInfo &&
+        categoryInfo.map((item: any, index: number) => (
+          <div key={index} className="line">
+            <h2>{item.title}</h2>
+            <div className="tagGroup">
+              {item.sub.map((subItem: any) => (
+                <Tag
+                  key={subItem.name}
+                  active={subItem.name === props.categoryText}
+                  showText={subItem.name}
+                  onClick={() => changeCategoryText(subItem.name)}
+                />
+              ))}
+            </div>
+          </div>
+        ))}
     </CategoryStyleBlock>
   );
 };

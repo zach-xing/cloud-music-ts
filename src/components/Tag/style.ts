@@ -1,9 +1,13 @@
 import styled from "styled-components";
 
-export const TagSpan = styled.button`
+interface ITagSpan {
+  active: boolean;
+}
+
+export const TagSpan = styled.button<ITagSpan>`
   text-align: center;
   min-width: 64px;
-  background-color: #323232;
+  background-color: ${(props) => (props.active ? "#bbcdff" : "#323232")};
   padding: 10px 15px;
   color: #787878;
   font-size: 18px;
