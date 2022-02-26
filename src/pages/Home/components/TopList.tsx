@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { MusicLine } from "../Home.style";
+import MusicLine from "../../../components/MusicLine";
 import MusicBlock from "../../../components/MusicBlock";
 import { fetchTopList } from "../../../api/home";
 
@@ -16,7 +16,7 @@ const TopList = () => {
   const [topList, setTopList] = useState<IList[]>([]);
 
   useEffect(() => {
-    fetchTopList().then((res) => {
+    fetchTopList().then((res: any) => {
       setTopList(res.data.list.slice(0, 5));
     });
   }, []);

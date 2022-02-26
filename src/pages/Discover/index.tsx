@@ -1,10 +1,11 @@
 import React from "react";
-import Tag from "@/components/Tag";
+import CategoryBlock from "./components/CategoryBlock";
 
 const Discover = () => {
   return (
     <div>
-      <Tag showText="sdf" />
+      <div style={{ fontSize: "50px", fontWeight: "bold" }}>发现</div>
+      <CategoryBlock />
     </div>
   );
 };

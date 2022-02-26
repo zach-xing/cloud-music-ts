@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { MusicLine } from "../Home.style";
+import MusicLine from "../../../components/MusicLine";
 import MusicBlock from "../../../components/MusicBlock";
 import { fetchPersonalized } from "../../../api/home";
 
@@ -15,7 +15,7 @@ const PersonalizedBlock = () => {
   const [result, setResult] = useState<IResult[]>([]);
 
   useEffect(() => {
-    fetchPersonalized().then((res) => {
+    fetchPersonalized().then((res: any) => {
       setResult(res.data.result);
     });
   }, []);

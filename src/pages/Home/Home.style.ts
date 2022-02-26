@@ -1,14 +1,5 @@
 import styled, { keyframes } from "styled-components";
 
-/**
- * 用作将每个音乐块 弹性布局
- */
-export const MusicLine = styled("div")({
-  display: "flex",
-  flexWrap: "wrap",
-  justifyContent: "space-between",
-});
-
 const move = keyframes`
   0% {
     transform: translateY(0);

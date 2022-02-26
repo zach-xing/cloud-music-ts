@@ -90,9 +90,7 @@
   },
   "devDependencies": {
     "@types/react-router-dom": "^5.3.3",
-    "@types/styled-components": "^5.1.23",
-    "customize-cra": "^1.0.0",
-    "react-app-rewired": "^2.2.1"
+    "@types/styled-components": "^5.1.23"
   },
   "jest": {
     "roots": [

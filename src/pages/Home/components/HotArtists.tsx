@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { fetchHotArtists } from "../../../api/home";
 import MusicBlock from "../../../components/MusicBlock";
-import { MusicLine } from "../Home.style";
+import MusicLine from "../../../components/MusicLine";
 
 interface IArtists {
   name:string;

@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { fetchAlbum } from "../../../api/home";
 import MusicBlock from "../../../components/MusicBlock";
-import { MusicLine } from "../Home.style";
+import MusicLine from "../../../components/MusicLine";
 
 interface IAlbums {
   name: string;
@@ -16,9 +16,7 @@ const NewAlbum = () => {
   const [albums, setAlbums] = useState<IAlbums[]>([]);
 
   useEffect(() => {
-    fetchAlbum().then((res) => {
-      console.log(res.data.albums);
-
+    fetchAlbum().then((res: any) => {
       setAlbums(res.data.albums);
     });
   }, []);
