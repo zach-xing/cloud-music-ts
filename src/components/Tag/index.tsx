@@ -1,4 +1,4 @@
-import React from "react";
+import { TagSpan } from "./style";
 
 interface IProps {
   showText: string;
@@ -8,7 +8,7 @@ interface IProps {
  * 标签样式
  */
 const Tag = (props: IProps) => {
-  return <div>Tag</div>;
+  return <TagSpan>{props.showText}</TagSpan>;
 };
 
 export default Tag;
