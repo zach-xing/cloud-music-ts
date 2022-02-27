@@ -10,10 +10,18 @@ interface IProps {
  * 歌单列表
  */
 const List = (props: IProps) => {
+  const handleDoubleClick = (idx: number) => {
+    console.log(idx, props.songs[idx]);
+    localStorage.setItem("player", JSON.stringify(props.songs[idx]));
+  };
+
   return (
     <Block>
-      {props.songs.map((item) => (
-        <ItemStyleBlock key={item.id}>
+      {props.songs.map((item, index: number) => (
+        <ItemStyleBlock
+          key={item.id}
+          onDoubleClick={() => handleDoubleClick(index)}
+        >
           <img src={item.al.picUrl} alt={item.al.picUrl} />
           <div className="info">
             <div className="songName">{item.name}</div>

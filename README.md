@@ -2,6 +2,8 @@
 
 开发中。。。
 
+## 使用的库
+
 说一下用到了那些库吧
 
 - styled-components
@@ -9,3 +11,6 @@
 - react-router-dom@5
 - axios
 - moment
+
+## TODO
+- 专辑页面
