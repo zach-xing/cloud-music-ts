@@ -4,6 +4,7 @@ import MusicBlock from "../../../components/MusicBlock";
 import MusicLine from "../../../components/MusicLine";
 
 interface IAlbums {
+  id: number;
   name: string;
   picUrl: string;
   artist: { name: string };
@@ -27,11 +28,11 @@ const NewAlbum = () => {
       <MusicLine>
         {albums.map((item) => (
           <MusicBlock
+            id={item.id}
             key={item.picUrl}
             name={item.name}
             picUrl={item.picUrl}
             blockWidth={"18%"}
-            isround="false"
             notes={item.artist.name}
           />
         ))}

@@ -27,11 +27,11 @@ const PersonalizedBlock = () => {
         {result.map((item) => {
           return (
             <MusicBlock
+              id={item.id}
               key={item.id}
               blockWidth={"18%"}
               name={item.name}
               picUrl={item.picUrl}
-              isround="false"
             />
           );
         })}

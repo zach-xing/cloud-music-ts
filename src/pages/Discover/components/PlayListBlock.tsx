@@ -22,14 +22,16 @@ const PlayListBlock = (props: IProps) => {
 
   return (
     <MusicLine>
-      {playLists && playLists.map((item: any) => (
-        <MusicBlock
-          key={item.coverImgUrl}
-          name={item.name}
-          picUrl={item.coverImgUrl}
-          blockWidth={"18%"}
-        />
-      ))}
+      {playLists &&
+        playLists.map((item: any) => (
+          <MusicBlock
+            id={item.id}
+            key={item.coverImgUrl}
+            name={item.name}
+            picUrl={item.coverImgUrl}
+            blockWidth={"18%"}
+          />
+        ))}
     </MusicLine>
   );
 };

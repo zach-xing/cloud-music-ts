@@ -25,15 +25,11 @@ const CategoryBlock = (props: IProps) => {
           sub: data.sub.filter((item: any) => item.category === ~~index),
         });
       }
-      console.log(info);
-      
       setCategoryInfo(info);
     })();
   }, []);
 
   const changeCategoryText = (name: string) => {
-    console.log(name);
-    
     props.setCategoryText(name);
   }
 

@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import Discover from "./pages/Discover";
 import Library from "./pages/Library";
 import Login from "./pages/Login";
+import PlayList from "./pages/PlayList";
 
 interface IMeta {
   isAuth: boolean; // 表示是否需要登录状态(路由鉴权) true 表示需要登录
@@ -31,11 +32,6 @@ const routes: IRoute[] = [
     },
   },
   {
-    name: "Login",
-    path: "/login",
-    component: Login,
-  },
-  {
     name: "Discover",
     path: "/discover",
     component: Discover,
@@ -51,6 +47,16 @@ const routes: IRoute[] = [
       isAuth: true,
       isDirectory: true,
     },
+  },
+  {
+    name: "Login",
+    path: "/login",
+    component: Login,
+  },
+  {
+    name: "PlayList",
+    path: "/playlist/:id",
+    component: PlayList,
   },
 ];
 

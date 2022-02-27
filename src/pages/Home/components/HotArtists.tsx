@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { fetchHotArtists } from "../../../api/home";
-import MusicBlock from "../../../components/MusicBlock";
+import ArtistBlock from "../../../components/ArtistBlock";
 import MusicLine from "../../../components/MusicLine";
 
 interface IArtists {
-  name:string;
+  id: number;
+  name: string;
   picUrl: string;
 }
 
@@ -25,7 +26,13 @@ const HotArtists = () => {
       <h2>推荐歌手</h2>
       <MusicLine>
         {artists.map((item) => (
-          <MusicBlock key={item.picUrl} name={item.name} picUrl={item.picUrl} blockWidth={"15%"} isround="true" />
+          <ArtistBlock
+            id={item.id}
+            key={item.picUrl}
+            name={item.name}
+            picUrl={item.picUrl}
+            blockWidth={"15%"}
+          />
         ))}
       </MusicLine>
     </>
