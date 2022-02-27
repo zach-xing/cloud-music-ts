@@ -8,3 +8,4 @@
 - @types/styled-components (npm i --save-dev @types/styled-components)
 - react-router-dom@5
 - axios
+- moment
