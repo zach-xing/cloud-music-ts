@@ -24,7 +24,6 @@ function PlayList() {
   useEffect(() => {
     (async () => {
       const { data } = await fetchPlaylistDetail({ id: params.id });
-      console.log(data.playlist);
       const str = data.playlist.trackIds.reduce(
         (prev: string & { id: string }, cur: { id: string }) =>
           `${prev.id || prev},${cur.id}`
@@ -38,8 +37,6 @@ function PlayList() {
         tags: data.playlist.tags,
         songs: res.data.songs,
       };
-      console.log(tmp);
-
       setState(tmp);
     })();
   }, [params]);
@@ -56,7 +53,9 @@ function PlayList() {
         </div>
       </InfoStyleBlock>
 
-      <List>sdf</List>
+      <div>{/* TODO:做表头或者写个搜索 */}</div>
+
+      <List songs={state?.songs || []} />
     </>
   );
 }
