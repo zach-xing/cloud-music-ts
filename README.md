@@ -9,6 +9,7 @@
 - styled-components
 - @types/styled-components (npm i --save-dev @types/styled-components)
 - react-router-dom@5
+- mobx 与 mobx-react-lite
 - axios
 - moment
 

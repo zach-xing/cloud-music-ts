@@ -29,7 +29,6 @@ function PlayList() {
           `${prev.id || prev},${cur.id}`
       );
       const res = await fetchSongList({ ids: str });
-      console.log(res);
       
       const tmp = {
         name: data.playlist.name,

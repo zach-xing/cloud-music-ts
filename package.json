@@ -37,6 +37,8 @@
     "jest-resolve": "^27.4.2",
     "jest-watch-typeahead": "^1.0.0",
     "mini-css-extract-plugin": "^2.4.5",
+    "mobx": "^6.4.2",
+    "mobx-react-lite": "^3.3.0",
     "moment": "^2.29.1",
     "postcss": "^8.4.4",
     "postcss-flexbugs-fixes": "^5.0.2",
