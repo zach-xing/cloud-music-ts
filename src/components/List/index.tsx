@@ -22,7 +22,7 @@ const List = (props: IProps) => {
     <Block>
       {props.songs.map((item, index: number) => (
         <ItemStyleBlock
-          key={item.id}
+          key={item.id + index}
           onDoubleClick={() => handleDoubleClick(index)}
         >
           <img src={item.al.picUrl} alt={item.al.picUrl} />

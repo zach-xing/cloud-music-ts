@@ -1,15 +1,14 @@
 import { Redirect, Route } from "react-router-dom";
 import type { IRoute } from "../../routes";
+import useStores from "../../store";
 
 /**
  * 路由鉴权
  */
 const AuthRoute = (props: IRoute) => {
   const { path, component, meta } = props;
-
-  if (meta && meta.isAuth) {
-    //TODO: 未登录状态
-
+  const { userStore } = useStores();
+  if (meta && meta.isAuth && userStore.getIsLogin()) {
     return <Redirect to="/login" />;
   }
 

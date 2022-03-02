@@ -23,8 +23,10 @@ export const Signup = styled.div`
     border: none;
     font-size: 18px;
     margin: 1rem 0;
+    color: white;
     background-color: #404040;
     :focus {
+      color: black;
       background-color: #bbcdff;
     }
   }

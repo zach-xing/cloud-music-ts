@@ -23,10 +23,10 @@ const PlayListBlock = (props: IProps) => {
   return (
     <MusicLine>
       {playLists &&
-        playLists.map((item: any) => (
+        playLists.map((item: any, index: number) => (
           <MusicBlock
             id={item.id}
-            key={item.coverImgUrl}
+            key={item.coverImgUrl + `${index}`}
             name={item.name}
             picUrl={item.coverImgUrl}
             blockWidth={"18%"}

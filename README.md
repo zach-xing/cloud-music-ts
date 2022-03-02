@@ -8,12 +8,13 @@
 
 说一下用到了那些库吧
 
-- styled-components
-- @types/styled-components (npm i --save-dev @types/styled-components)
+- styled-components（需要安装 @types/styled-components）
 - react-router-dom@5
 - mobx 与 mobx-react-lite
 - axios
 - moment
+- js-cookie（需要安装 @types/js-cookie）
 
 ## TODO
 - 专辑页面
+- Toast 组件

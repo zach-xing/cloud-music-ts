@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
+import useStores from "../../../store";
 import useDebounce from "../../../hooks/useDebounce";
 import { Signup } from "../login.style";
 import { loginWithPhone } from "../../../api/login";
@@ -6,10 +8,20 @@ import { loginWithPhone } from "../../../api/login";
 const PhoneLogin = () => {
   const [account, setAccount] = useState("");
   const [password, setPassword] = useState("");
+  const { userStore } = useStores();
+  const history = useHistory();
 
+  // 登录操作
   const handleLogin = async () => {
-    const res = await loginWithPhone(account, password);
+    const res: any = await loginWithPhone(account, password);
     console.log(res);
+    if (res.data.code !== 200) {
+      alert(res.data.message ?? "登录失败");
+    } else {
+      console.log("Success");
+      userStore.loginAction(res.data.profile, res.data.token);
+      history.push("/library");
+    }
   };
 
   const handleInputAccount = useDebounce(
