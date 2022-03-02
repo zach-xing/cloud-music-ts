@@ -93,6 +93,7 @@ const Player = () => {
   const alreadyPlay = (e: any) => {};
   const endPlay = (e: any) => {};
   // 播放位置发生时改变触发
+  // TODO:尝试能不能用 requestAnimationFrame 来优化
   const timeUpdate = (e: any) => {
     // 获取audio当前播放时间
     let currentTime = format(playerRef.current.currentTime); // 事件转换

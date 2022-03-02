@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import useDebounce from "../../../hooks/useDebounce";
 import { Signup } from "../login.style";
 import { loginWithPhone } from "../../../api/login";
