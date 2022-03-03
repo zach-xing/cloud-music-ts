@@ -2,11 +2,13 @@ import React from "react";
 import playerStore from "./playerStore";
 import userStore from "./userStore";
 
-const storesContext = React.createContext({
+export const stores = {
   playerStore: new playerStore(),
   userStore: new userStore(),
-});
+};
 
-const useStores = () => React.useContext(storesContext);
+export const StoresContext = React.createContext(stores);
+
+const useStores = () => React.useContext(StoresContext);
 
 export default useStores;

@@ -6,14 +6,15 @@ import { ProfileBlock } from "./library.style";
 
 const Library = observer(() => {
   const { userStore } = useStores();
-  const profile: any = userStore.getProfile();
+  const profile: any = userStore.profile;
+  console.log("library", profile);
 
   useEffect(() => {
     (async () => {
-      const { data } = await fetchLoveSongs(profile.userId);
+      const { data } = await fetchLoveSongs({ id: profile.userId });
       console.log(data);
     })();
-  }, [profile.userId]);
+  }, []);
 
   return (
     <ProfileBlock>

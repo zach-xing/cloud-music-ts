@@ -19,7 +19,7 @@ const PhoneLogin = () => {
     if (res.data.code !== 200) {
       alert(res.data.message ?? "登录失败");
     } else {
-      console.log("Success");
+      console.log("Login Success");
       setCookie(res.data.cookie);
       userStore.loginAction(res.data.profile, res.data.token);
       history.push("/library");

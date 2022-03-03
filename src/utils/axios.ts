@@ -10,6 +10,8 @@ const service = axios.create({
 service.interceptors.request.use(
   function (config) {
     if (!config.params) config.params = {};
+    console.log(JSON.stringify(config));
+
     // 发送请求时携带 cookie
     config.params.cookie = `MUSIC_U=${getCookie("MUSIC_U")};`;
     return config;

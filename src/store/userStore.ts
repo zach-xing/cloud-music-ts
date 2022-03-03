@@ -1,31 +1,30 @@
 import { makeAutoObservable } from "mobx";
 
 class UserStore {
-  private profile: any = {}; // 用户信息
-  private token: string = ""; // Token
-  private isLogin: boolean = false; // 是否登录
+  private _profile: any;
+  private _token: string = ""; // Token
   constructor() {
     makeAutoObservable(this);
   }
+  // 用户信息
+  get profile(): object {
+    return (
+      this._profile || JSON.parse(sessionStorage.getItem("profile") as string)
+    );
+  }
 
   public getId(): number {
-    return this.profile.userId;
-  }
-  public getProfile(): object {
-    return this.profile;
-  }
-  public getToken(): string {
-    return this.token;
-  }
-  public getIsLogin(): boolean {
-    return this.isLogin;
+    return this._profile.userId;
   }
 
-  // 登录操作
+  public getToken(): string {
+    return this._token;
+  }
   public loginAction(profile: object, token: string): void {
-    this.profile = profile;
-    this.token = token;
-    this.isLogin = true;
+    this._profile = profile;
+    this._token = token;
+    sessionStorage.setItem("profile", JSON.stringify(profile));
+    sessionStorage.setItem("token", JSON.stringify(token));
   }
 }
 
