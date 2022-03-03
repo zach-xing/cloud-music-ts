@@ -16,7 +16,7 @@ export function setCookie(str: string) {
  * 获取 Cookie 信息
  */
 export function getCookie(key: string) {
-  return Cookies.get(key) ?? localStorage.getItem(key);
+  return Cookies.get(key) ?? localStorage.getItem(`cookie-${key}`);
 }
 
 /**
@@ -25,4 +25,11 @@ export function getCookie(key: string) {
 export function removeCookie(key: string): void {
   Cookies.remove(key);
   localStorage.removeItem(key);
+}
+
+/**
+ * 是否登录
+ */
+export function isLogined() {
+  return getCookie("MUSIC_U") !== undefined;
 }

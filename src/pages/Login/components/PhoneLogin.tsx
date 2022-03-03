@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import useStores from "../../../store";
+import { setCookie } from "../../../utils/auth";
 import useDebounce from "../../../hooks/useDebounce";
 import { Signup } from "../login.style";
 import { loginWithPhone } from "../../../api/login";
@@ -19,6 +20,7 @@ const PhoneLogin = () => {
       alert(res.data.message ?? "登录失败");
     } else {
       console.log("Success");
+      setCookie(res.data.cookie);
       userStore.loginAction(res.data.profile, res.data.token);
       history.push("/library");
     }

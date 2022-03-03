@@ -1,5 +1,4 @@
 import React from "react";
-import useStores from "../../store";
 import { toDate } from "../../utils/format";
 import { Block, ItemStyleBlock } from "./style";
 
@@ -11,10 +10,7 @@ interface IProps {
  * 歌单列表
  */
 const List = (props: IProps) => {
-  const { playerStore } = useStores();
-
   const handleDoubleClick = (idx: number) => {
-    playerStore.setSongId(props.songs[idx].id);
     localStorage.setItem("player", JSON.stringify(props.songs[idx]));
   };
 
