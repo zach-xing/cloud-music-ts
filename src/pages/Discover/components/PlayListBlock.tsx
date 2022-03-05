@@ -29,7 +29,6 @@ const PlayListBlock = (props: IProps) => {
             key={item.coverImgUrl + `${index}`}
             name={item.name}
             picUrl={item.coverImgUrl}
-            blockWidth={"18%"}
           />
         ))}
     </MusicLine>

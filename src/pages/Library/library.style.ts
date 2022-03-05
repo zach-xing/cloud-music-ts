@@ -23,3 +23,13 @@ export const ProfileBlock = styled.div`
     }
   }
 `;
+
+export const Select = styled.select`
+  font-size: 18px;
+  color: #e4e4e4;
+  background-color: #4a4949;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  margin: 15px 0;
+`;

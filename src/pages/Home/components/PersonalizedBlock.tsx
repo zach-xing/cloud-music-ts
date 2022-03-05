@@ -29,7 +29,6 @@ const PersonalizedBlock = () => {
             <MusicBlock
               id={item.id}
               key={item.id}
-              blockWidth={"18%"}
               name={item.name}
               picUrl={item.picUrl}
             />

@@ -15,7 +15,7 @@ export function fetchPersonalized() {
  */
 export function fetchHotArtists() {
   return request({
-    url: "/top/artists?limit=6",
+    url: "/top/artists?limit=5",
     method: "GET",
   });
 }

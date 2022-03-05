@@ -1,11 +1,6 @@
 import styled from "styled-components";
 
-interface IBlockProps {
-  width: string;
-}
-
-export const Block = styled("div")<IBlockProps>((props: IBlockProps) => ({
-  width: props.width,
+export const Block = styled("div")(({
   borderRadius: "15px",
   marginBottom: "15px",
   img: {

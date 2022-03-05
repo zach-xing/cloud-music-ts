@@ -4,7 +4,6 @@ import { Block } from "./style";
 interface IProps {
   id: number; // id
   picUrl: string; // 图片地址
-  blockWidth: string; // 宽度
   name: string;
 }
 
@@ -14,7 +13,6 @@ interface IProps {
 const ArtistBlock = (props: IProps) => {
   return (
     <Block
-      width={props.blockWidth}
       // onClick={handleClick}
     >
       <img src={props.picUrl} alt={props.name} />

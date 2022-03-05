@@ -3,7 +3,7 @@ import { TagSpan } from "./style";
 interface IProps {
   showText: string;
   active?: boolean;
-  onClick: (event: any) => void;
+  onClick?: (event: any) => void;
 }
 
 /**

@@ -6,7 +6,6 @@ interface IProps {
   id: number; // id
   name: string;
   picUrl: string; // 图片地址
-  blockWidth: string; // 宽度
   notes?: string; // 注释
 }
 /**
@@ -20,7 +19,7 @@ const MusicBlock: React.FC<IProps> = (props: IProps) => {
   };
 
   return (
-    <Block width={props.blockWidth} onClick={handleClick}>
+    <Block onClick={handleClick}>
       <img src={props.picUrl} alt={props.name || "null"} />
       <p style={{ textAlign: "center" }}>{props.name}</p>
       {props.notes && (

@@ -9,7 +9,7 @@ class UserStore {
   // 用户信息
   get profile(): object {
     return (
-      this._profile || JSON.parse(sessionStorage.getItem("profile") as string)
+      this._profile || JSON.parse(localStorage.getItem("profile") as string)
     );
   }
 
@@ -23,8 +23,8 @@ class UserStore {
   public loginAction(profile: object, token: string): void {
     this._profile = profile;
     this._token = token;
-    sessionStorage.setItem("profile", JSON.stringify(profile));
-    sessionStorage.setItem("token", JSON.stringify(token));
+    localStorage.setItem("profile", JSON.stringify(profile));
+    localStorage.setItem("token", JSON.stringify(token));
   }
 }
 

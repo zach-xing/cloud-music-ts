@@ -32,7 +32,6 @@ const NewAlbum = () => {
             key={item.picUrl}
             name={item.name}
             picUrl={item.picUrl}
-            blockWidth={"18%"}
             notes={item.artist.name}
           />
         ))}

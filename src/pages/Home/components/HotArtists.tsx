@@ -31,7 +31,6 @@ const HotArtists = () => {
             key={item.picUrl}
             name={item.name}
             picUrl={item.picUrl}
-            blockWidth={"15%"}
           />
         ))}
       </MusicLine>
