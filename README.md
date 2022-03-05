@@ -13,6 +13,12 @@
 - moment
 - js-cookie（需要安装 @types/js-cookie）
 
+## Features
+- 基本音乐软件功能
+- 全屏歌词滚动
+- 底部播放器组件
+- 虚拟列表（VList 组件，目前应用到“我喜欢的音乐”中）
+
 ## TODO
 - 专辑页面
 - Toast 组件

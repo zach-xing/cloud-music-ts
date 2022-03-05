@@ -18,12 +18,16 @@ export const ProfileBlock = styled.div`
       color: #335eea;
       background-color: #bbcdff;
       padding-left: 20px;
+      cursor: pointer;
     }
     .songs {
     }
   }
 `;
 
+/**
+ * 选择样式组件
+ */
 export const Select = styled.select`
   font-size: 18px;
   color: #e4e4e4;

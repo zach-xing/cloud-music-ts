@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchPlaylistDetail, fetchSongList } from "../../api/playlist";
-import List from "../../components/List";
+import VList from "../../components/VList";
 import { toDate } from "../../utils/format";
 import { InfoStyleBlock } from "./playlist.style";
 
@@ -19,7 +19,9 @@ interface IPlaylist {
  */
 function PlayList() {
   const params: any = useParams();
+  const resizeRef = useRef<any>();
   const [state, setState] = useState<IPlaylist>();
+  const [listHeight, setListHeight] = useState(0);
 
   useEffect(() => {
     (async () => {
@@ -29,7 +31,7 @@ function PlayList() {
           `${prev.id || prev},${cur.id}`
       );
       const res = await fetchSongList({ ids: str });
-      
+
       const tmp = {
         name: data.playlist.name,
         imgUrl: data.playlist.coverImgUrl,
@@ -41,6 +43,17 @@ function PlayList() {
       setState(tmp);
     })();
   }, [params]);
+
+  useEffect(() => {
+    setListHeight(window.innerHeight - 68 - 20);
+    resizeRef.current = () => {
+      setListHeight(window.innerHeight - 68 - 20);
+    };
+    window.addEventListener("resize", resizeRef.current);
+    return () => {
+      window.removeEventListener("resize", resizeRef.current);
+    };
+  }, []);
 
   return (
     <>
@@ -56,7 +69,12 @@ function PlayList() {
 
       <div>{/* TODO:做表头或者写个搜索 */}</div>
 
-      <List songs={state?.songs || []} />
+      <VList
+        containerHeight={listHeight}
+        ItemElHeight={68}
+        count={state?.songs.length || 0}
+        lists={state?.songs || []}
+      />
     </>
   );
 }

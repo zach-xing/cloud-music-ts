@@ -4,6 +4,29 @@ import Header from "./components/Header";
 import AuthRoute from "./components/AuthRoute";
 import Player from "./components/Player";
 import { Main } from "./App.style";
+import NoMatch from "./pages/NoMatch";
+
+// function WrapRoute(routes: IRoute[]) {
+//   console.log(JSON.stringify(routes, null, 2));
+
+//   return (
+//     <>
+//       {routes.map((item) => {
+//         if (item.meta && item.meta.isAuth) {
+//           return <AuthRoute key={item.name} {...item} />;
+//         } else {
+//           return (
+//             <Route exact key={item.name} {...item}>
+//               {item.childrens && item.childrens.length !== 0
+//                 ? WrapRoute(item.childrens)
+//                 : null}
+//             </Route>
+//           );
+//         }
+//       })}
+//     </>
+//   );
+// }
 
 function App() {
   // 重写 localStorage.setItem
@@ -24,9 +47,10 @@ function App() {
             if (item.meta && item.meta.isAuth) {
               return <AuthRoute key={item.name} {...item} />;
             } else {
-              return <Route exact key={item.name} {...item} />;
+              return <Route key={item.name} {...item} />;
             }
           })}
+          <Route component={NoMatch} />
         </Switch>
         <Player />
       </Main>

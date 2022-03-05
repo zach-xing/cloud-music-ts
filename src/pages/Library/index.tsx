@@ -1,5 +1,6 @@
 import { ChangeEvent, useEffect, useState } from "react";
 import { observer } from "mobx-react-lite";
+import { useHistory } from "react-router-dom";
 import { fetchUserPlaylists } from "../../api/library";
 import useStores from "../../store";
 import MusicLine from "../../components/MusicLine";
@@ -7,6 +8,7 @@ import MusicBlock from "../../components/MusicBlock";
 import { ProfileBlock, Select } from "./library.style";
 
 const Library = observer(() => {
+  const history = useHistory();
   const [playlist, setPlayList] = useState<any[]>([]);
   const [curPlaylist, setCurrentPlaylist] = useState<any[]>([]);
   const { userStore } = useStores();
@@ -16,10 +18,9 @@ const Library = observer(() => {
   useEffect(() => {
     (async () => {
       const { data } = await fetchUserPlaylists({ uid: profile.userId });
-      // console.log(data.playlist);
-
-      setPlayList(data.playlist);
-      setCurrentPlaylist(data.playlist);
+      const arr = data.playlist.slice(1);
+      setPlayList(arr);
+      setCurrentPlaylist(arr);
     })();
   }, [profile.userId]);
 
@@ -40,6 +41,10 @@ const Library = observer(() => {
         setCurrentPlaylist(playlist);
     }
   };
+  // 进入喜欢歌曲界面
+  const handleLoveSongs = () => {
+    history.push("/library/lovesongs");
+  };
 
   return (
     <>
@@ -47,7 +52,7 @@ const Library = observer(() => {
         {/* 用户名称 */}
         <h1>[ {profile.nickname} ]的音乐库</h1>
         <div className="song">
-          <div className="love">
+          <div className="love" onClick={handleLoveSongs}>
             <h2>我喜欢的音乐</h2>
             {/* TODO:歌的数量 */}
             <span>256首</span>

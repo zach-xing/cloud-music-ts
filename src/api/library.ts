@@ -5,7 +5,7 @@ import request from "../utils/axios";
  */
 export function fetchLoveSongs(params: { uid: number }) {
   return request({
-    url: "/user/playlist",
+    url: "/likelist",
     method: "GET",
     params: params,
   });
