@@ -59,7 +59,9 @@ const VList = (props: IProps) => {
             width: "100%",
             height: `${props.ItemElHeight}px`,
             position: "absolute",
-            top: `${i * props.ItemElHeight}px`,
+            transform: `translateY(${i * props.ItemElHeight}px)`,
+            // top: `${i * props.ItemElHeight}px`,
+            top: 0,
             left: 0,
             right: 0,
           }}
