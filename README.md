@@ -2,6 +2,8 @@
 
 仿 Github 中的 YesPlayMusic 开源项目进行编写，项目全部使用 styled-components 自己开发样式组件，包括歌词滚动、底部播放器组件等。
 
+## 重构ing
+
 ## 使用的库
 
 说一下用到了那些库吧
