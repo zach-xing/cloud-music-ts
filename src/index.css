@@ -1,17 +1,38 @@
-* {
-  box-sizing: border-box;
+:root {
+  --main-Color: #bbcdff;
+  --main-bgColor: rgba(34, 34, 34, 0.95);
+  --main-fontColor: #335eea;
+  /** 按钮 */
+  --main-buttonColor: #335eea;
 }
 
 body {
-  margin: 0px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+::-webkit-scrollbar,
+::-webkit-scrollbar-thumb {
+  width: 16px;
+  border-radius: 10px;
+  background-clip: padding-box;
+  border: 3px solid transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  box-shadow: inset 0 0 0 5px;
+  color: rgba(121, 121, 121, 0.5);
+}
+
+::-webkit-scrollbar-track-piece {
+  background-color: var(--main-bgColor);
 }

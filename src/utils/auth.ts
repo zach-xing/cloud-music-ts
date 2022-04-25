@@ -6,8 +6,8 @@ import Cookies from "js-cookie";
 export function setCookie(str: string) {
   const cookies = str.split(";;");
   cookies.forEach((cookie: string) => {
-    document.cookie = cookie;
     const cookieKeyValue = cookie.split(";")[0].split("=");
+    Cookies.set(`cookie-${cookieKeyValue[0]}`, cookieKeyValue[1]);
     localStorage.setItem(`cookie-${cookieKeyValue[0]}`, cookieKeyValue[1]);
   });
 }
@@ -29,7 +29,8 @@ export function removeCookie(key: string): void {
 
 /**
  * 是否登录
+ * true 则登录，否则未登录
  */
 export function isLogined() {
-  return getCookie("MUSIC_U") !== undefined;
+  return !!getCookie("MUSIC_U");
 }

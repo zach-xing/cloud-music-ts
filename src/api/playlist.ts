@@ -1,25 +1,22 @@
-import request from "../utils/axios";
+import request from "../utils/request";
 
 /**
- * 获取歌单的信息
- * @param params 包含歌单id
+ * 获取歌单分类,包含 category 信息
  */
-export function fetchPlaylistDetail(params: { id: string }) {
+export function fetchPlayCatlist() {
   return request({
-    url: "/playlist/detail",
+    url: "/playlist/catlist",
     method: "GET",
-    params: params,
   });
 }
 
 /**
- * 获取歌曲列表
- * @param params 歌曲的id，用逗号分隔
+ * 获取网友精选碟歌单
+ * @param cat 分类标签，比如 " 华语 "、" 古风 " 、" 欧美 "、" 流行 ", 默认为 "全部"
  */
-export function fetchSongList(params: { ids: string }) {
-  return request({
-    url: "/song/detail",
+export function fetchTopPlaylists(cat: string = "全部", limit: number = 40) {
+  return request<{ playlists: Array<API.PlayListItem> }>({
+    url: `/top/playlist?cat=${cat}&limit=${limit}`,
     method: "GET",
-    params: params,
   });
 }

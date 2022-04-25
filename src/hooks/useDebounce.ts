@@ -13,7 +13,7 @@ function useDebounce(fn: (args: any) => void, delay: number, dep = []) {
   );
 
   return useCallback(
-    (...args) => {
+    (...args: any) => {
       if (current.timer) {
         clearTimeout(current.timer);
       }

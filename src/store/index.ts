@@ -1,9 +1,9 @@
 import React from "react";
-import playerStore from "./playerStore";
+// import playerStore from "./playerStore";
 import userStore from "./userStore";
 
 export const stores = {
-  playerStore: new playerStore(),
+  // playerStore: new playerStore(),
   userStore: new userStore(),
 };
 

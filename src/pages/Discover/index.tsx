@@ -1,18 +1,37 @@
-import { useState } from "react";
-import CategoryBlock from "./components/CategoryBlock";
-import PlayList from "./components/PlayListBlock";
+import { useState, useEffect } from "react";
+import { fetchTopPlaylists } from "../../api/playlist";
+import Box from "../../components/Box";
+import GridLayout from "../../components/GridLayout";
+import CategoryBox from "./components/CategoryBox";
 
+/**
+ * 发现
+ */
 const Discover = () => {
-  const [categoryText, setCategoryText] = useState<string>("全部");
+  const [text, setText] = useState<string>("全部");
+  const [playList, setPlayList] = useState<Array<API.PlayListItem>>();
+
+  useEffect(() => {
+    (async () => {
+      const arr = await fetchTopPlaylists(text);
+      setPlayList(arr.playlists);
+    })();
+  }, [text]);
 
   return (
     <div>
-      <div style={{ fontSize: "50px", fontWeight: "bold" }}>发现</div>
-      <CategoryBlock
-        categoryText={categoryText}
-        setCategoryText={setCategoryText}
-      />
-      <PlayList categoryText={categoryText} />
+      <h1>发现</h1>
+      <CategoryBox selectedText={text} setSelectedText={setText} />
+      <GridLayout>
+        {playList?.map((item) => (
+          <Box
+            id={item.id}
+            key={item.id}
+            name={item.name}
+            picUrl={item.coverImgUrl}
+          />
+        ))}
+      </GridLayout>
     </div>
   );
 };
