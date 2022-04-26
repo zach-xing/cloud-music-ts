@@ -1,4 +1,5 @@
 import axios, { AxiosRequestConfig } from "axios";
+import { getCookie } from "./auth";
 
 // interface MyResponseType<T = any> {
 //   status: number;
@@ -12,14 +13,17 @@ const instance = axios.create({
   withCredentials: true,
 });
 
-// instance.interceptors.request.use(
-//   (config) => {},
-//   () => {}
-// );
+instance.interceptors.request.use(
+  (config) => {
+    if (!config.params) config.params = {};
+    // 发送请求时携带 cookie
+    config.params.cookie = `MUSIC_U=${getCookie("MUSIC_U")};`;
+    return config;
+  },
+  () => {}
+);
 
-const request = async <T = any>(
-  config: AxiosRequestConfig
-): Promise<T> => {
+const request = async <T = any>(config: AxiosRequestConfig): Promise<T> => {
   const { data } = await instance.request<T>(config);
   console.log("utils/request", data);
 

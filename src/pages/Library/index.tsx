@@ -1,15 +1,24 @@
-import { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { observer } from "mobx-react-lite";
 import useStores from "../../store";
 import { ProfileHeader, SectionOne } from "./style";
+import { fetchLoveSongs } from "../../api/user";
+import PersonalPlayList from "./components/PersonalPlayList";
+
 /**
  * 音乐库
  */
 const Library = observer(() => {
   const { userStore } = useStores();
   const profile: API.Profile = userStore.profile;
+  console.log("re-render");
 
-  useEffect(() => {}, []);
+  // useEffect(() => {
+  //   (async () => {
+  //     const data = await fetchLoveSongs({ uid: profile.userId });
+  //     console.log(data);
+  //   })();
+  // }, [profile.userId]);
 
   return (
     <>
@@ -38,8 +47,10 @@ const Library = observer(() => {
         <div className="liked-songs">
           <h2>我喜欢的音乐</h2>
         </div>
-        <div className="songs"></div>
+        <div className="songs">待。。。</div>
       </SectionOne>
+      
+      <PersonalPlayList profile={profile} />
     </>
   );
 });

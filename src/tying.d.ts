@@ -75,6 +75,7 @@ declare namespace API {
     coverImgUrl: string;
     playCount: number; // 播放次数
     createTime: number;
+    subscribed?: boolean; // 是否是用户已收藏
     // creator
   };
 }

@@ -41,6 +41,7 @@ export const ProfileHeader = styled.div`
 export const SectionOne = styled.div`
   display: flex;
   height: 240px;
+  margin: 50px 0;
   .liked-songs {
     flex: 3;
     color: var(--main-fontColor);
@@ -53,5 +54,21 @@ export const SectionOne = styled.div`
   .songs {
     flex: 7;
     margin-left: 36px;
+  }
+`;
+
+/**
+ * 包括歌单信息等
+ */
+export const SectionTwo = styled.div`
+  select {
+    font-size: 18px;
+    color: #e4e4e4;
+    background-color: #4a4949;
+    border: none;
+    outline: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin: 15px 0;
   }
 `;

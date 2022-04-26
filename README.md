@@ -16,9 +16,8 @@ yarn start # 启动 Web 端
 - react-router-dom@5（需安装 @types/react-router-dom）
 - mobx 与 mobx-react-lite
 - axios
-<!-- - dayjs -->
 - js-cookie（需要安装 @types/js-cookie）
-
+<!-- - dayjs -->
 ## Features
 
 - 基本音乐软件功能
@@ -29,5 +28,6 @@ yarn start # 启动 Web 端
 ## TODO
 
 - 专辑页面
+- 歌手页面
 - Message 组件
-- 歌曲倍速播放
+- Dialog 组件

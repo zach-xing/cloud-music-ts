@@ -16,6 +16,7 @@ const Tag = styled.div<IProps>`
   font-size: 18px;
   border-radius: 10px;
   cursor: pointer;
+  transition: all 0.3s ease;
   :hover {
     color: #335eea;
     background-color: #bbcdff;
