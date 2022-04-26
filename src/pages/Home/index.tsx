@@ -24,7 +24,6 @@ const Home = () => {
       setHotArtistsData(hotArtistsData.artists);
 
       const newAlbumData = await fetchNewAlbum();
-      console.log(newAlbumData);
       setNewAlbumData(newAlbumData.albums);
 
       const topListData = await fetchTopList();

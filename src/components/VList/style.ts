@@ -11,9 +11,20 @@ export const Container = styled.div<IContainer>`
   overflow-x: hidden;
   height: ${(props) => props.height}px;
   border-radius: 10px;
-  ::-webkit-scrollbar {
-    display: none; /* Chrome Safari */
+  ::-webkit-scrollbar,
+  ::-webkit-scrollbar-thumb {
+    width: 16px;
+    border-radius: 10px;
+    background-clip: padding-box;
+    border: 3px solid transparent;
   }
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE 10+ */
+
+  ::-webkit-scrollbar-thumb {
+    box-shadow: inset 0 0 0 5px;
+    color: rgba(121, 121, 121, 0.5);
+  }
+
+  ::-webkit-scrollbar-track-piece {
+    background-color: #2d2d2d;
+  }
 `;

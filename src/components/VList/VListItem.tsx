@@ -11,15 +11,16 @@ export const StyleVListItem = styled.div<StyleProps>`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: "100%",
-  height: ${(props) => props.height}px
-  padding: 10px 5px;
+  width: 99%; // 为滚动条腾点位置
+  height: ${(props) => props.height}px;
+  padding: 3px 0;
   border-radius: 10px;
-  position: "absolute";
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
   transform: translateY(${(props) => props.translateY}px);
+  will-change: transform;
   img {
     width: 48px;
     height: 48px;
@@ -42,7 +43,7 @@ export const StyleVListItem = styled.div<StyleProps>`
 `;
 
 type IProps = {
-  data: any;
+  data: API.Song;
   index: number;
 } & StyleProps;
 

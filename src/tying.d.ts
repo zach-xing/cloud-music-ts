@@ -75,7 +75,31 @@ declare namespace API {
     coverImgUrl: string;
     playCount: number; // 播放次数
     createTime: number;
-    subscribed?: boolean; // 是否是用户已收藏
+    subscribed: boolean; // 是否是用户已收藏
     // creator
+  };
+
+  /** 一个歌单的详细信息 */
+  type PlayListDetail = PlayListItem & {
+    trackIds: {
+      id: string;
+    }[];
+  };
+
+  type Song = {
+    id: number;
+    name: string; // 歌曲名
+    dt: number; // 时长
+    // 歌手列表
+    ar: {
+      id: number;
+      name: string;
+    }[];
+    // 专辑信息
+    al: {
+      id: number;
+      name: string;
+      picUrl: string;
+    };
   };
 }

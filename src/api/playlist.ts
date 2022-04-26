@@ -20,3 +20,29 @@ export function fetchTopPlaylists(cat: string = "全部", limit: number = 40) {
     method: "GET",
   });
 }
+
+/**
+ * 获取歌单详细信息
+ * @param {object} params
+ * @returns 歌单详细信息数据
+ */
+export function fetchPlaylistDetail(params: { id: string }) {
+  return request<{ playlist: API.PlayListDetail }>({
+    url: "/playlist/detail",
+    method: "GET",
+    params: params,
+  });
+}
+
+/**
+ * 获取歌单中的歌曲列表
+ * @param params ids 歌曲的id，用逗号分隔
+ * @return 歌曲列表
+ */
+export function fetchSongList(params: { ids: string }) {
+  return request<{songs: Array<API.Song>}>({
+    url: "/song/detail",
+    method: "GET",
+    params: params,
+  });
+}

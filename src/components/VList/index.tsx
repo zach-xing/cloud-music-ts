@@ -3,7 +3,7 @@ import VListItem from "./VListItem";
 import { Container } from "./style";
 
 interface IProps {
-  lists: any[];
+  lists: Array<API.Song>;
   containerHeight: number;
   ItemElHeight: number;
   count: number;
@@ -13,6 +13,8 @@ interface IProps {
  * 虚拟列表渲染
  */
 const VList = (props: IProps) => {
+  console.dir(props);
+  
   const containerRef = useRef<HTMLDivElement>(null);
   const [startIndex, setStartIndex] = useState(0);
 

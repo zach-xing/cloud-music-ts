@@ -16,7 +16,6 @@ const Login = () => {
   // 登录操作
   const handleLogin = async () => {
     const res = await loginWithPhone(account, password);
-    console.log("登录情况", res);
     if (res.code !== 200) {
       alert("登录失败");
     } else {
