@@ -20,7 +20,6 @@ export const StyleVListItem = styled.div<StyleProps>`
   left: 0;
   right: 0;
   transform: translateY(${(props) => props.translateY}px);
-  will-change: transform;
   img {
     width: 48px;
     height: 48px;

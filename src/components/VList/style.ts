@@ -11,6 +11,9 @@ export const Container = styled.div<IContainer>`
   overflow-x: hidden;
   height: ${(props) => props.height}px;
   border-radius: 10px;
+  will-change: transform;
+  border-top: 1px solid var(--main-Color);
+  border-bottom: 1px solid var(--main-Color);
   ::-webkit-scrollbar,
   ::-webkit-scrollbar-thumb {
     width: 16px;
