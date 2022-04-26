@@ -1,6 +1,20 @@
 import { useLocation } from "react-router-dom";
 import { StyleHeader, StyleNav, StyleNavLink, SearchInput } from "./style";
-import routes from "../../routes";
+
+const routes: Array<{ name: string; path: string }> = [
+  {
+    name: "首页",
+    path: "/",
+  },
+  {
+    name: "发现",
+    path: "/discover",
+  },
+  {
+    name: "音乐库",
+    path: "/library",
+  },
+];
 
 const Header = () => {
   const { pathname } = useLocation();
@@ -8,19 +22,15 @@ const Header = () => {
   return (
     <StyleHeader>
       <StyleNav>
-        {routes.map((item) => {
-          if (item.meta && item.meta.isDirectory) {
-            return (
-              <StyleNavLink
-                key={item.path}
-                href={item.path}
-                className={pathname === item.path ? "active" : ""}
-              >
-                {item.name}
-              </StyleNavLink>
-            );
-          } else return null;
-        })}
+        {routes.map((item) => (
+          <StyleNavLink
+            key={item.path}
+            href={item.path}
+            className={item.path === pathname ? "active" : ""}
+          >
+            {item.name}
+          </StyleNavLink>
+        ))}
       </StyleNav>
       <div style={{ display: "flex", alignItems: "center", color: "white" }}>
         <SearchInput placeholder="搜索" />

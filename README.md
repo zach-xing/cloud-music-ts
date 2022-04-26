@@ -13,7 +13,7 @@ yarn start # 启动 Web 端
 说一下用到了那些库吧
 
 - styled-components（需要安装 @types/styled-components）
-- react-router-dom@5（需安装 @types/react-router-dom）
+- react-router-dom（需安装 @types/react-router-dom）
 - mobx 与 mobx-react-lite
 - axios
 - js-cookie（需要安装 @types/js-cookie）

@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 /** Box 的自定义样式组件 */
@@ -32,9 +33,19 @@ interface IProps {
  * @returns 块组件
  */
 const Box = (props: IProps) => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(`/playlist/${props.id}`);
+  };
+
   return (
     <StyleBox>
-      <img src={props.picUrl} alt={props.name || "null"} />
+      <img
+        src={props.picUrl}
+        alt={props.name || "null"}
+        onClick={handleClick}
+      />
       <p style={{ textAlign: "center", marginBottom: 0 }}>{props.name}</p>
       {props.notes && (
         <div
@@ -43,6 +54,7 @@ const Box = (props: IProps) => {
             fontSize: "10px",
             color: "#b6b6b6",
           }}
+          onClick={handleClick}
         >
           {props.notes}
         </div>

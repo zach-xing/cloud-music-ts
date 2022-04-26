@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import useStores from "../../store";
 import useDebounce from "../../hooks/useDebounce";
 import { loginWithPhone } from "../../api/login";
@@ -8,7 +8,7 @@ import { StyleLogin, StyleMain } from "./style";
 import { setCookie } from "../../utils/auth";
 
 const Login = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
   const [account, setAccount] = useState("");
   const [password, setPassword] = useState("");
   const { userStore } = useStores();
@@ -23,9 +23,7 @@ const Login = () => {
       console.info("Login Success");
       setCookie(res.cookie);
       userStore.loginAction(res.profile, res.token);
-      history.push("/library");
-      // TODO:优化页面跳转
-      window.location.reload();
+      navigate("/library", { replace: true });
     }
   };
 

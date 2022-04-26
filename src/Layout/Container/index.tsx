@@ -1,7 +1,12 @@
-import { Route, Switch } from "react-router-dom";
+import { useRoutes } from "react-router-dom";
 import styled from "styled-components";
+import NoFound from "../../pages/404";
 import AuthRoute from "./AuthRoute";
-import routes from "../../routes";
+import Home from "../../pages/Home";
+import Discover from "../../pages/Discover";
+import Library from "../../pages/Library";
+import Login from "../../pages/Login";
+import PlayList from "../../pages/PlayList";
 
 const Main = styled("main")`
   min-height: calc(100vh - 64px);
@@ -14,20 +19,38 @@ const Main = styled("main")`
 `;
 
 const Container = () => {
-  return (
-    <Main>
-      <Switch>
-        {routes.map((item) => {
-          if (item.meta && item.meta.isAuth) {
-            return <AuthRoute key={item.path} {...item} />;
-          } else {
-            return <Route key={item.path} {...item} />;
-          }
-        })}
-        {/* <Route component={NoMatch} /> */}
-      </Switch>
-    </Main>
-  );
+  let element = useRoutes([
+    {
+      path: "/",
+      element: <Home />,
+    },
+    {
+      path: "/discover",
+      element: <Discover />,
+    },
+    {
+      path: "/library",
+      element: (
+        <AuthRoute>
+          <Library />
+        </AuthRoute>
+      ),
+    },
+    {
+      path: "/login",
+      element: <Login />,
+    },
+    {
+      path: "/playlist/:id",
+      element: <PlayList />,
+    },
+    {
+      path: "*",
+      element: <NoFound />,
+    },
+  ]);
+
+  return <Main>{element}</Main>;
 };
 
 export default Container;
