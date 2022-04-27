@@ -3,7 +3,7 @@ import Recommend from "./components/Recommend";
 import Box from "../../components/Box";
 import BoxSinger from "../../components/BoxSinger";
 import GridLayout from "../../components/GridLayout";
-import { fetchPersonalized } from "../../api/home";
+import { fetchPersonalized } from "../../api/personalized";
 import { fetchHotArtists } from "../../api/artists";
 import { fetchNewAlbum } from "../../api/album";
 import { fetchTopList } from "../../api/toplist";

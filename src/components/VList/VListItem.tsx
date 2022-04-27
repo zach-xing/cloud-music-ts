@@ -24,12 +24,12 @@ const List = (props: IProps) => {
       translateY={props.translateY}
       onDoubleClick={() => handleDoubleClick()}
     >
-      <img src={data.al.picUrl} alt={data.al.picUrl} />
+      <img src={data.al && data.al.picUrl} alt={data.name} />
       <div className="info">
         <div className="songName">{data.name}</div>
-        <div className="name">{data.ar[0].name}</div>
+        <div className="name">{data.ar && data.ar[0].name}</div>
       </div>
-      <div style={{ flex: 1 }}>{data.al.name}</div>
+      <div style={{ flex: 1 }}>{data.al && data.al.name}</div>
       <div>{dayjs(data.dt).format("mm:ss")}</div>
     </StyleVListItem>
   );

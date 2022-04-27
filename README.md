@@ -1,6 +1,7 @@
 # 一个仿音乐软件
 
 仿 Github 中的 YesPlayMusic 开源项目进行编写，项目全部使用 styled-components 自己开发样式组件，包括歌词滚动、底部播放器组件等。
+后端数据采用 [NeteaseCloudMusicApi](https://github.com/Binaryify/NeteaseCloudMusicApi) 提供的服务。
 
 ## 启动
 

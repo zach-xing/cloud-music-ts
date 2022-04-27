@@ -89,17 +89,12 @@ declare namespace API {
   type Song = {
     id: number;
     name: string; // 歌曲名
-    dt: number; // 时长
+    dt?: number; // 时长
     // 歌手列表
-    ar: {
-      id: number;
-      name: string;
-    }[];
+    ar?: Array<Artist>;
+    artists?: Array<Artist>;
     // 专辑信息
-    al: {
-      id: number;
-      name: string;
-      picUrl: string;
-    };
+    al?: Album;
+    album?: Album;
   };
 }

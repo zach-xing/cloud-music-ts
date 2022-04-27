@@ -4,6 +4,7 @@ import { observer } from "mobx-react-lite";
 import useStores from "../../store";
 import { ProfileHeader, SectionOne } from "./style";
 import PersonalPlayList from "./components/PersonalPlayList";
+import PersonalizedPlayList from "./components/PersonalizedPlayList";
 import { fetchUserPlaylists } from "../../api/user";
 
 /**
@@ -15,14 +16,12 @@ const Library = observer(() => {
   const [loveList, setLoveList] = useState<API.PlayListItem>();
   const { userStore } = useStores();
   const profile: API.Profile = userStore.profile;
-  console.log("re-render");
 
   useEffect(() => {
     (async () => {
       const data = await fetchUserPlaylists({ uid: profile.userId });
       setPlayLists(data.playlist.slice(1)); // 将我喜欢的音乐去除
       setLoveList(data.playlist[0]);
-      console.log(data.playlist[0]);
       
     })();
   }, [profile.userId]);
@@ -59,7 +58,9 @@ const Library = observer(() => {
         <div className="liked-songs" onClick={jumpToLikedSongs}>
           <h2>我喜欢的音乐</h2>
         </div>
-        <div className="songs">待。。。</div>
+        <div className="songs">
+          <PersonalizedPlayList />
+        </div>
       </SectionOne>
 
       <PersonalPlayList playLists={playLists!} />
