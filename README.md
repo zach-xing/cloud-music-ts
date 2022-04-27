@@ -17,7 +17,7 @@ yarn start # 启动 Web 端
 - mobx 与 mobx-react-lite
 - axios
 - js-cookie（需要安装 @types/js-cookie）
-<!-- - dayjs -->
+- dayjs
 ## Features
 
 - 基本音乐软件功能

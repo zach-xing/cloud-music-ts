@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
+import dayjs from "dayjs";
 import { fetchPlaylistDetail, fetchSongList } from "../../api/playlist";
 import Button from "../../components/Button";
 import VList from "../../components/VList";
@@ -47,7 +48,11 @@ const PlayList = () => {
         <img src={playListDetail?.coverImgUrl} alt={playListDetail?.name} />
         <div className="details">
           <h1>{playListDetail?.name}</h1>
-          <p>创建于{playListDetail?.createTime}</p>
+          <p>
+            最后更新于{" "}
+            {dayjs(playListDetail?.createTime).format("YYYY年MM月DD日")}-
+            {songs?.length}首歌
+          </p>
           <p>{playListDetail?.description}</p>
           <Button>播放</Button>
         </div>

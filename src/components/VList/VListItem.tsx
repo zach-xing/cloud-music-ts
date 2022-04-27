@@ -1,45 +1,6 @@
-import styled from "styled-components";
-
-interface StyleProps {
-  height: number;
-  translateY: number;
-}
-/**
- * 显示一条歌曲信息的样式块
- */
-export const StyleVListItem = styled.div<StyleProps>`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 99%; // 为滚动条腾点位置
-  height: ${(props) => props.height}px;
-  padding: 3px 0;
-  border-radius: 10px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  transform: translateY(${(props) => props.translateY}px);
-  img {
-    width: 48px;
-    height: 48px;
-    border-radius: 10px;
-    margin-right: 20px;
-  }
-  .info {
-    flex: 1;
-    .songName {
-      font-size: 18px;
-      font-weight: bold;
-    }
-    .name {
-      font-size: 14px;
-    }
-  }
-  :hover {
-    background-color: rgba(34, 34, 34, 0.86);
-  }
-`;
+import dayjs from "dayjs";
+import { StyleVListItem } from "./style";
+import type { StyleProps } from "./style";
 
 type IProps = {
   data: API.Song;
@@ -69,7 +30,7 @@ const List = (props: IProps) => {
         <div className="name">{data.ar[0].name}</div>
       </div>
       <div style={{ flex: 1 }}>{data.al.name}</div>
-      <div>{data.dt}</div>
+      <div>{dayjs(data.dt).format("mm:ss")}</div>
     </StyleVListItem>
   );
 };

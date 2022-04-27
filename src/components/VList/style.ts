@@ -19,7 +19,7 @@ export const Container = styled.div<IContainer>`
     width: 16px;
     border-radius: 10px;
     background-clip: padding-box;
-    border: 3px solid transparent;
+    border: 5px solid transparent;
   }
 
   ::-webkit-scrollbar-thumb {
@@ -29,5 +29,46 @@ export const Container = styled.div<IContainer>`
 
   ::-webkit-scrollbar-track-piece {
     background-color: #2d2d2d;
+  }
+`;
+
+export interface StyleProps {
+  height: number;
+  translateY: number;
+}
+/**
+ * 显示一条歌曲信息的样式块
+ */
+export const StyleVListItem = styled.div<StyleProps>`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 99%; // 为滚动条腾点位置
+  height: ${(props) => props.height}px;
+  padding: 3px 0;
+  border-radius: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  transform: translateY(${(props) => props.translateY}px);
+  img {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    margin-right: 20px;
+  }
+  .info {
+    flex: 1;
+    .songName {
+      font-size: 18px;
+      font-weight: bold;
+    }
+    .name {
+      font-size: 14px;
+    }
+  }
+  :hover {
+    background-color: rgba(34, 34, 34, 0.86);
   }
 `;
