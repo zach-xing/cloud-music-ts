@@ -5,6 +5,7 @@ import AuthRoute from "./AuthRoute";
 import Home from "../../pages/Home";
 import Discover from "../../pages/Discover";
 import Library from "../../pages/Library";
+import LikedSongs from "../../pages/Library/LikedSongs";
 import Login from "../../pages/Login";
 import PlayList from "../../pages/PlayList";
 
@@ -30,11 +31,20 @@ const Container = () => {
     },
     {
       path: "/library",
-      element: (
-        <AuthRoute>
-          <Library />
-        </AuthRoute>
-      ),
+      children: [
+        {
+          index: true,
+          element: (
+            <AuthRoute>
+              <Library />
+            </AuthRoute>
+          ),
+        },
+        {
+          path: "liked-songs",
+          element: <LikedSongs />,
+        },
+      ],
     },
     {
       path: "/login",

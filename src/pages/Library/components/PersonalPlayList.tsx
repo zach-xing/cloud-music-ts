@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import { fetchUserPlaylists } from "../../../api/user";
 import Box from "../../../components/Box";
 import GridLayout from "../../../components/GridLayout";
 
@@ -18,7 +17,7 @@ const SectionTwo = styled.div`
 `;
 
 interface IProps {
-  profile: API.Profile;
+  playLists: Array<API.PlayListItem>;
 }
 
 /**
@@ -27,14 +26,6 @@ interface IProps {
  */
 const PersonalPlayList: React.FC<IProps> = (props) => {
   const [curStatus, setCurStatus] = useState("all");
-  const [userPlayList, setUserPlaylists] = useState<Array<API.PlayListItem>>();
-
-  useEffect(() => {
-    (async () => {
-      const data = await fetchUserPlaylists({ uid: props.profile.userId });
-      setUserPlaylists(data.playlist);
-    })();
-  }, [props.profile.userId]);
 
   // 切换 select {全部歌单、创建的歌单、收藏的歌单}
   const handleChangePlaylist = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -49,7 +40,7 @@ const PersonalPlayList: React.FC<IProps> = (props) => {
         <option value="subscribed">收藏的歌单</option>
       </select>
       <GridLayout>
-        {userPlayList
+        {props.playLists
           ?.filter((item) => {
             if (curStatus === "subscribed") {
               return item.subscribed === true;
