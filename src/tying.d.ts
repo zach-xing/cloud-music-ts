@@ -1,3 +1,5 @@
+declare module "*.svg";
+
 declare namespace API {
   /**
    * 个人信息
@@ -86,6 +88,7 @@ declare namespace API {
     }[];
   };
 
+  /** 歌曲信息 */
   type Song = {
     id: number;
     name: string; // 歌曲名
@@ -97,4 +100,10 @@ declare namespace API {
     al?: Album;
     album?: Album;
   };
+
+  /** 歌词信息 */
+  type Lyric = {
+    lyc: string;
+    time: string;
+  }[];
 }
