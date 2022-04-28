@@ -44,8 +44,8 @@ yarn start # 启动 Web 端
 
 发现
 
-![](.\docs\img\img02.png)
+![](./docs/img/img02.png)
 
 音乐库
 
-![](.\docs\img\img03.png)
+![](./docs/img/img03.png)
