@@ -59,6 +59,7 @@ export const OtherStyleBlock = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  color: white;
   img {
     width: 36px;
     cursor: pointer;
