@@ -40,7 +40,7 @@ yarn start # 启动 Web 端
 
 首页
 
-![](.\docs\img\img01.png)
+![](./docs/img/img01.png)
 
 发现
 
