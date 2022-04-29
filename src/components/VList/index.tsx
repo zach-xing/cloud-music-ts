@@ -12,9 +12,7 @@ interface IProps {
 /**
  * 虚拟列表渲染
  */
-const VList = (props: IProps) => {
-  console.dir(props);
-  
+const VList = (props: IProps) => {  
   const containerRef = useRef<HTMLDivElement>(null);
   const [startIndex, setStartIndex] = useState(0);
 

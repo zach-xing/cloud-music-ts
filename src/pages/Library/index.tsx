@@ -64,7 +64,6 @@ const Library = observer(() => {
       </SectionOne>
 
       <PersonalPlayList playLists={playLists!} />
-      <Outlet />
     </>
   );
 });

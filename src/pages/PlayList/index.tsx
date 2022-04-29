@@ -26,7 +26,6 @@ const PlayList = () => {
       });
       setPlayListDetail(data.playlist);
       const res = await fetchSongList({ ids: str });
-      console.log("sdf", res.songs);
       setSongs(res.songs);
     })();
   }, [id]);

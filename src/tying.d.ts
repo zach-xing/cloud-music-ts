@@ -39,6 +39,10 @@ declare namespace API {
     id: number;
     name: string;
     picUrl: string;
+    musicSize?: number; //歌曲数量
+    albumSize?: number; // 专辑数量
+    mvSize?: number; // mv 数量
+    briefDesc?: string; // 简单描述
   };
 
   /** 专辑信息 */

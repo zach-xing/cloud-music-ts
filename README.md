@@ -1,6 +1,6 @@
 # 一个仿音乐软件
 
-仿 Github 中的 [YesPlayMusic](https://github.com/qier222/YesPlayMusic) 开源项目进行编写，项目全部使用 styled-components 自己开发样式组件，包括歌词滚动、底部播放器组件等。
+仿 Github 中的 [YesPlayMusic](https://github.com/qier222/YesPlayMusic) 开源项目进行编写，项目全部使用 **styled-components** 自己开发样式组件，包括歌词滚动、底部播放器组件等。
 
 后端数据采用 [NeteaseCloudMusicApi](https://github.com/Binaryify/NeteaseCloudMusicApi) 提供的服务。
 
@@ -22,6 +22,7 @@ yarn start # 启动 Web 端
 - axios
 - js-cookie（需要安装 @types/js-cookie）
 - dayjs
+
 ## Features
 
 - 基本音乐软件功能
@@ -32,11 +33,13 @@ yarn start # 启动 Web 端
 ## TODO
 
 - 专辑页面
-- 歌手页面
+- 歌手页面（ing）
 - Message 组件
 - Dialog 组件
 
 ## 项目部分截图
+
+> 以下部分 UI 还会更改
 
 首页
 

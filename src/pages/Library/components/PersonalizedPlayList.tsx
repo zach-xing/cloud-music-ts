@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { fetchPersonalizedNewSongs } from "../../../api/personalized";
-import SongItem from "./SongItem";
+import SongItem from "../../../components/Song";
 
 const StyleDiv = styled.div`
   display: flex;
@@ -31,7 +31,6 @@ const PersonalizedPlayList = () => {
   useEffect(() => {
     (async () => {
       const data = await fetchPersonalizedNewSongs();
-      console.log(data);
       const arr: Array<API.Song> = [];
       data.result.forEach((item) => {
         arr.push(item.song);

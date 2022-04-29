@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 /** Box 的自定义样式组件 */
@@ -6,7 +7,7 @@ const StyleBox = styled.div`
   border-radius: 100%;
   img {
     width: 100%;
-    border-radius: 100%;
+    clip-path: circle(45%);
     cursor: pointer;
     &:hover {
       box-shadow: 0 0 10px;
@@ -21,10 +22,9 @@ const StyleBox = styled.div`
 `;
 
 interface IProps {
-  id: number; // id
+  id: number; // 歌手id
   name: string;
   picUrl: string; // 图片地址
-  notes?: string; // 注释
 }
 
 /**
@@ -32,21 +32,23 @@ interface IProps {
  * @returns 块组件
  */
 const BoxSinger = (props: IProps) => {
+  const navigate = useNavigate();
+
+  // 跳转至歌手页面
+  const jumpToArtist = () => {
+    navigate(`/artist/${props.id}`);
+  };
+
   return (
     <StyleBox>
-      <img src={props.picUrl} alt={props.name || "null"} />
-      <p style={{ textAlign: "center" }}>{props.name}</p>
-      {props.notes && (
-        <div
-          style={{
-            textAlign: "center",
-            fontSize: "10px",
-            color: "#b6b6b6",
-          }}
-        >
-          {props.notes}
-        </div>
-      )}
+      <img
+        src={props.picUrl}
+        alt={props.name || "null"}
+        onClick={jumpToArtist}
+      />
+      <p style={{ textAlign: "center" }} onClick={jumpToArtist}>
+        {props.name}
+      </p>
     </StyleBox>
   );
 };
