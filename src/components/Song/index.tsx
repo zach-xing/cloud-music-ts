@@ -16,12 +16,18 @@ const SongItem: React.FC<IProps> = (props) => {
 
   return (
     <StyleDiv>
-      <img src={data.al?.picUrl} alt={data.name} onDoubleClick={playMusic} />
+      <img
+        src={data.al ? data.al?.picUrl : data.album?.picUrl}
+        alt={data.name}
+        onDoubleClick={playMusic}
+      />
       <div>
         <div className="name" onDoubleClick={playMusic}>
           {data.name}
         </div>
-        <div className="songer">{data.ar![0].name}</div>
+        <div className="songer">
+          {data.ar ? data.ar[0].name : data.artists![0].name}
+        </div>
       </div>
     </StyleDiv>
   );

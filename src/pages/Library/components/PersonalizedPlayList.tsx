@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { fetchPersonalizedNewSongs } from "../../../api/personalized";
-import SongItem from "../../../components/Song";
+import Song from "../../../components/Song";
 
 const StyleDiv = styled.div`
   display: flex;
@@ -44,7 +44,7 @@ const PersonalizedPlayList = () => {
       <div className="text">推荐新音乐单曲</div>
       <div className="grid_layout">
         {newSongs?.map((item) => (
-          <SongItem key={item.id} data={item} />
+          <Song key={item.id} data={item} />
         ))}
       </div>
     </StyleDiv>

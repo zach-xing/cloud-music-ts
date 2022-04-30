@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Outlet, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { observer } from "mobx-react-lite";
 import useStores from "../../store";
 import { ProfileHeader, SectionOne } from "./style";
