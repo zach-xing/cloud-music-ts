@@ -44,12 +44,7 @@ const PersonalizedPlayList = () => {
       <div className="text">推荐新音乐单曲</div>
       <div className="grid_layout">
         {newSongs?.map((item) => (
-          <SongItem
-            key={item.id}
-            name={item.name}
-            picUrl={item.album?.picUrl!}
-            arName={item.artists![0].name}
-          />
+          <SongItem key={item.id} data={item} />
         ))}
       </div>
     </StyleDiv>

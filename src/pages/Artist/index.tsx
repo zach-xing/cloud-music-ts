@@ -1,24 +1,29 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchAlbum } from "../../api/album";
-import { fetchArtist, fetchArtistMVs } from "../../api/artists";
+import {
+  fetchArtist,
+  fetchArtistMVs,
+  fetchSimilarArtists,
+} from "../../api/artists";
 import Box from "../../components/Box";
+import BoxSinger from "../../components/BoxSinger";
 import Button from "../../components/Button";
 import GridLayout from "../../components/GridLayout";
 import MV from "../../components/MV";
-import Song from "../../components/Song";
 import HotSongs from "./components/HotSongs";
-import { ArtistInfoDiv, SongGridLayout } from "./style";
+import { ArtistInfoDiv } from "./style";
 
 /**
  * 歌手页面
  */
 const Artist = () => {
   const { id } = useParams();
-  const [artist, setArtist] = useState<API.Artist>();
-  const [hotSongs, setHotSongs] = useState<Array<API.Song>>();
-  const [hotAlbums, setHotAlbums] = useState<Array<API.Album>>();
-  const [mvs, setMvs] = useState<Array<API.MV>>();
+  const [artist, setArtist] = useState<API.Artist>(); // 歌手信息
+  const [hotSongs, setHotSongs] = useState<Array<API.Song>>(); // 热门歌曲列表
+  const [hotAlbums, setHotAlbums] = useState<Array<API.Album>>(); // 专辑列表
+  const [mvs, setMvs] = useState<Array<API.MV>>(); // MV 列表
+  const [simiArtists, setSimiArtists] = useState<Array<API.Artist>>();
   console.log("%c render", "color: red;font-size: 20px");
 
   useEffect(() => {
@@ -26,13 +31,14 @@ const Artist = () => {
       const data = await fetchArtist(id!);
       const res = await fetchAlbum({ id } as { id: string });
       const { mvs } = await fetchArtistMVs({ id } as { id: string });
+      const { artists } = await fetchSimilarArtists(id!);
 
       setHotAlbums(res.hotAlbums);
       setArtist(data.artist);
       setHotSongs(data.hotSongs);
-      console.log(mvs);
-      
       setMvs(mvs);
+      setSimiArtists(artists);
+      window.scrollTo(0, 0);
     })();
   }, [id]);
 
@@ -67,7 +73,7 @@ const Artist = () => {
       </GridLayout>
 
       {/* MV */}
-      <h2>MVs</h2>
+      <h2 style={{ marginTop: "50px" }}>MVs</h2>
       <GridLayout>
         {mvs?.map((item) => (
           <MV
@@ -78,6 +84,14 @@ const Artist = () => {
             imgurl={item.imgurl}
             publishTime={item.publishTime}
           />
+        ))}
+      </GridLayout>
+
+      {/* 相似歌手 */}
+      <h2 style={{ marginTop: "50px" }}>相似歌手</h2>
+      <GridLayout>
+        {simiArtists?.map((item) => (
+          <BoxSinger key={item.id} id={item.id} name={item.name} picUrl={item.picUrl} />
         ))}
       </GridLayout>
     </>

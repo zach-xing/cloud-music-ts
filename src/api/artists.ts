@@ -38,7 +38,21 @@ export function fetchArtistMVs(params: {
 }) {
   return request<{ mvs: Array<API.MV> }>({
     url: "/artist/mv",
-    method: "get",
+    method: "GET",
     params,
+  });
+}
+
+/**
+ * 相似歌手
+ * 说明 : 调用此接口 , 传入歌手 id, 可获得相似歌手
+ * - id: 歌手 id
+ * @param {number} id
+ */
+export function fetchSimilarArtists(id: string) {
+  return request<{ artists: Array<API.Artist> }>({
+    url: "/simi/artist",
+    method: "GET",
+    params: { id },
   });
 }

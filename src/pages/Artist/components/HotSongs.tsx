@@ -25,14 +25,7 @@ const HotSongs: React.FC<IProps> = (props) => {
       <SongGridLayout>
         {hotSongs?.map((item, index) => {
           if (index + 1 > count) return null;
-          return (
-            <Song
-              key={item.id}
-              name={item.name}
-              picUrl={item.al?.picUrl!}
-              arName={item.ar![0].name as string}
-            />
-          );
+          return <Song key={item.id} data={item} />;
         })}
       </SongGridLayout>
       <p style={{ cursor: "pointer", opacity: "0.68" }} onClick={handleShow}>
