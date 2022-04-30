@@ -110,4 +110,14 @@ declare namespace API {
     lyc: string;
     time: string;
   }[];
+
+  /** MV 信息 */
+  type MV = {
+    id: number;
+    name: string;
+    artistName: string;
+    imgurl: string;
+    publishTime: string;
+    // artist: Artist;
+  };
 }

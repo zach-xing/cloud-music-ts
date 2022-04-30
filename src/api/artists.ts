@@ -23,3 +23,22 @@ export function fetchArtist(id: string) {
     method: "GET",
   });
 }
+
+/**
+ * 获取歌手 mv
+ * 说明 : 调用此接口 , 传入歌手 id, 可获得歌手 mv 信息 , 具体 mv 播放地址可调 用/mv传入此接口获得的 mvid 来拿到 , 如 : /artist/mv?id=6452,/mv?mvid=5461064
+ * @param {number} params.id 歌手 id, 可由搜索接口获得
+ * @param {number} params.offset
+ * @param {number} params.limit
+ */
+export function fetchArtistMVs(params: {
+  id: string;
+  offset?: number;
+  limit?: number;
+}) {
+  return request<{ mvs: Array<API.MV> }>({
+    url: "/artist/mv",
+    method: "get",
+    params,
+  });
+}
