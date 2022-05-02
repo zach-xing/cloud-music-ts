@@ -32,8 +32,6 @@ yarn start # 启动 Web 端
 
 ## TODO
 
-- 专辑页面
-- 歌手页面（ing）
 - Message 组件
 - Dialog 组件
 

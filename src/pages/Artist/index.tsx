@@ -10,7 +10,7 @@ import Box from "../../components/Box";
 import BoxSinger from "../../components/BoxSinger";
 import Button from "../../components/Button";
 import GridLayout from "../../components/GridLayout";
-import MV from "../../components/MV";
+import MV from "../../components/MVComp";
 import HotSongs from "./components/HotSongs";
 import { ArtistInfoDiv } from "./style";
 

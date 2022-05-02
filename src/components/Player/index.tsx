@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { fetchLyric } from "../../api/player";
 import {
   Block,
@@ -189,4 +189,4 @@ const Player = () => {
   );
 };
 
-export default Player;
+export default React.memo(Player);
