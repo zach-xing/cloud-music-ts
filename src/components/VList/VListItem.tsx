@@ -14,7 +14,7 @@ type IProps = {
 const List = (props: IProps) => {
   const navigate = useNavigate();
   const { data } = props;
-  
+
   // 双击播放音乐
   const handleDoubleClick = () => {
     localStorage.setItem("player", JSON.stringify(data));
@@ -23,6 +23,10 @@ const List = (props: IProps) => {
   const jumpToArtist = (id: number | undefined) => {
     if (id === undefined) return;
     navigate(`/artist/${id}`);
+  };
+
+  const jumpToAlbum = (data: {id: number}) => {
+    navigate(`/album/${data.id}`);
   };
 
   return (
@@ -42,7 +46,12 @@ const List = (props: IProps) => {
           {data.ar && data.ar[0].name}
         </div>
       </div>
-      <div style={{ flex: 1 }}>{data.al && data.al.name}</div>
+      <div
+        style={{ flex: 1, cursor: "pointer" }}
+        onClick={() => jumpToAlbum(data.al!)}
+      >
+        {data.al && data.al.name}
+      </div>
       <div>{dayjs(data.dt).format("mm:ss")}</div>
     </StyleVListItem>
   );

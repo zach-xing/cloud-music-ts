@@ -1,5 +1,13 @@
 import request from "../utils/request";
 
+export function fetchAlbumById(params: { id: number }) {
+  return request<{ album: API.Album; songs: Array<API.Song> }>({
+    url: "/album",
+    method: "GET",
+    params,
+  });
+}
+
 /**
  * 获取歌手的专辑
  * @param params.id 歌手 id

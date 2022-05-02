@@ -57,17 +57,19 @@ export const StyleVListItem = styled.div<StyleProps>`
     height: 48px;
     border-radius: 10px;
     margin-right: 20px;
+    cursor: pointer;
   }
   .info {
     flex: 1;
     .songName {
       font-size: 18px;
       font-weight: bold;
+      cursor: default;
     }
     .name {
       font-size: 14px;
+      cursor: pointer;
       &:hover {
-        cursor: pointer;
         text-decoration: underline;
       }
     }

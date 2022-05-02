@@ -53,6 +53,7 @@ declare namespace API {
     size: 2; // un-know
     publishTime: number;
     artist: Artist;
+    description: string;
   };
 
   /** 排行榜每项的信息 */

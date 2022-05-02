@@ -9,6 +9,7 @@ import LikedSongs from "../../pages/Library/LikedSongs";
 import Login from "../../pages/Login";
 import PlayList from "../../pages/PlayList";
 import Artist from "../../pages/Artist";
+import Album from "../../pages/Album";
 
 const Main = styled("main")`
   min-height: calc(100vh - 64px);
@@ -58,6 +59,10 @@ const Container = () => {
     {
       path: "/artist/:id",
       element: <Artist />,
+    },
+    {
+      path: "/album/:id",
+      element: <Album />,
     },
     {
       path: "*",
