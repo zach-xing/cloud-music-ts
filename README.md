@@ -32,6 +32,7 @@ yarn start # 启动 Web 端
 
 ## TODO
 
+- 个人页面
 - Message 组件
 - Dialog 组件
 

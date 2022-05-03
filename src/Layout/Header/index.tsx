@@ -1,4 +1,9 @@
-import { useLocation } from "react-router-dom";
+import { observer } from "mobx-react-lite";
+import { useLocation, useNavigate } from "react-router-dom";
+import Button from "../../components/Button";
+import Input from "../../components/Input";
+import useStores from "../../store";
+import { isLogined } from "../../utils/auth";
 import { StyleHeader, StyleNav, StyleNavLink, SearchInput } from "./style";
 
 const routes: Array<{ name: string; path: string }> = [
@@ -16,8 +21,10 @@ const routes: Array<{ name: string; path: string }> = [
   },
 ];
 
-const Header = () => {
+const Header = observer(() => {
   const { pathname } = useLocation();
+  const navigate = useNavigate();
+  const { userStore } = useStores();
 
   return (
     <StyleHeader>
@@ -33,11 +40,24 @@ const Header = () => {
         ))}
       </StyleNav>
       <div style={{ display: "flex", alignItems: "center", color: "white" }}>
-        <SearchInput placeholder="搜索" />
-        <p>更多</p>
+        {/* <SearchInput placeholder="搜索" /> */}
+        <Input
+          placeholder="搜索"
+          defaultValue={""}
+          style={{ marginRight: "10px" }}
+        />
+        {isLogined() ? (
+          <img
+            src={userStore.profile.avatarUrl}
+            alt="个人头像"
+            onClick={() => navigate("/user")}
+          />
+        ) : (
+          <Button onClick={() => navigate("/login")}>登录</Button>
+        )}
       </div>
     </StyleHeader>
   );
-};
+});
 
 export default Header;

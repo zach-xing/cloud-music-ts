@@ -1,4 +1,5 @@
 import Cookies from "js-cookie";
+import { logout } from "../api/login";
 
 /**
  * 设置 Cookie
@@ -24,7 +25,16 @@ export function getCookie(key: string) {
  */
 export function removeCookie(key: string): void {
   Cookies.remove(key);
-  localStorage.removeItem(key);
+  localStorage.removeItem(`cookie-${key}`);
+}
+
+/**
+ * 真正的退出登录
+ */
+export function doLogout() {
+  logout();
+  removeCookie("MUSIC_U");
+  removeCookie("__csrf");
 }
 
 /**

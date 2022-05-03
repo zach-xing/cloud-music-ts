@@ -5,6 +5,7 @@ import styled from "styled-components";
  */
 export interface StyleProps {
   size?: "block" | "default";
+  danger?: boolean;
 }
 
 export const StyleButton = styled.button<StyleProps>`
@@ -30,13 +31,15 @@ export const StyleButton = styled.button<StyleProps>`
   width: ${(props) => (props.size === "default" ? "auto" : "100%")};
   padding: 6px 16px;
   border-radius: 4px;
-  color: var(--main-buttonColor);
-  background-color: var(--main-Color);
+  color: ${(props) => (props.danger ? "red" : "var(--main-buttonColor)")};
+  background-color: ${(props) =>
+    props.danger ? "white" : "var(--main-Color)"};
+  ${(props) => (props.danger ? "border: 1px solid red;" : "")}; // 若是 danger 则显示边框
   box-shadow: rgb(0 0 0 / 20%) 0px 3px 1px -2px,
     rgb(0 0 0 / 14%) 0px 2px 2px 0px, rgb(0 0 0 / 12%) 0px 1px 5px 0px;
   transition: all 0.5s ease;
   &:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
   }
   &:active {
     transform: scale(1);

@@ -12,6 +12,11 @@ export const StyleHeader = styled("header")`
   right: 0;
   z-index: 100;
   background-color: rgb(34, 34, 34);
+  img {
+    height: 40px;
+    clip-path: circle(50%);
+    cursor: pointer;
+  }
 `;
 
 /**

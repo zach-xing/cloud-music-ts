@@ -14,3 +14,13 @@ export function loginWithPhone(phone: string, password: string) {
     method: "POST",
   });
 }
+
+/**
+ * 发送退出登录的请求
+ */
+export function logout() {
+  return request({
+    url: `/logout`,
+    method: "POST",
+  })
+}
