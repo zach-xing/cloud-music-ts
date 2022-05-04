@@ -100,7 +100,8 @@ const Player = observer(() => {
   };
   // 播放位置发生时改变触发
   const timeUpdate = () => {
-    if (isFull) { // 在全屏的情况下进行
+    if (isFull) {
+      // 在全屏的情况下进行
       // 获取audio当前播放时间
       let currentTime = format(playerRef.current!.currentTime); // 时间转换
       for (let i: number = currentLyc; i < lyricList.length; i++) {
@@ -123,7 +124,14 @@ const Player = observer(() => {
           <img src={state?.al?.picUrl} alt={state?.al?.picUrl} />
           <div className="songInfo">
             <div className="songName">{state?.name}</div>
-            <div className="name">{state?.ar![0].name}</div>
+            <div className="name">
+              {state?.ar &&
+                state.ar.map((item) => (
+                  <span key={item.id} style={{ marginRight: "5px" }}>
+                    {item.name}
+                  </span>
+                ))}
+            </div>
           </div>
         </InfoStyleBlock>
 

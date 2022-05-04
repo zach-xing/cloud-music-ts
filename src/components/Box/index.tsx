@@ -26,6 +26,7 @@ interface IProps {
   name: string;
   picUrl: string; // 图片地址
   notes?: string; // 注释
+  basePath?: string; // 将要跳转的页面
 }
 
 /**
@@ -36,7 +37,7 @@ const Box = (props: IProps) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate(`/playlist/${props.id}`);
+    navigate(`/${props.basePath ? props.basePath : "playlist"}/${props.id}`);
   };
 
   return (

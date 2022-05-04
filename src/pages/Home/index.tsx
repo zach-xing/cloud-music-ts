@@ -68,6 +68,7 @@ const Home = () => {
             name={item.name}
             picUrl={item.picUrl}
             notes={item.artist.name}
+            basePath="album"
           />
         ))}
       </GridLayout>

@@ -27,7 +27,7 @@ const List = (props: IProps) => {
     navigate(`/artist/${id}`);
   };
 
-  const jumpToAlbum = (data: {id: number}) => {
+  const jumpToAlbum = (data: { id: number }) => {
     navigate(`/album/${data.id}`);
   };
 
@@ -41,11 +41,17 @@ const List = (props: IProps) => {
       <img src={data.al && data.al.picUrl} alt={data.name} />
       <div className="info">
         <div className="songName">{data.name}</div>
-        <div
-          className="name"
-          onClick={() => jumpToArtist(data.ar && data.ar[0].id)}
-        >
-          {data.ar && data.ar[0].name}
+        <div>
+          {data.ar &&
+            data.ar.map((item) => (
+              <span
+                key={item.id}
+                className="name"
+                onClick={() => jumpToArtist(data.ar && data.ar[0].id)}
+              >
+                {item.name}
+              </span>
+            ))}
         </div>
       </div>
       <div

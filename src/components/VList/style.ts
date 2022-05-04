@@ -69,6 +69,7 @@ export const StyleVListItem = styled.div<StyleProps>`
     .name {
       font-size: 14px;
       cursor: pointer;
+      margin-right: 5px;
       &:hover {
         text-decoration: underline;
       }
