@@ -1,4 +1,5 @@
 import React from "react";
+import useStores from "../../store";
 import { StyleDiv } from "./style";
 
 interface IProps {
@@ -9,9 +10,10 @@ interface IProps {
  * 单个歌曲的信息展示
  */
 const SongItem: React.FC<IProps> = (props) => {
+  const { playerStore } = useStores();
   const { data } = props;
   const playMusic = () => {
-    localStorage.setItem("player", JSON.stringify(data));
+    playerStore.playCurSong(data);
   };
 
   return (

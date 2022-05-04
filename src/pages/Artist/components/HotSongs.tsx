@@ -28,9 +28,9 @@ const HotSongs: React.FC<IProps> = (props) => {
           return <Song key={item.id} data={item} />;
         })}
       </SongGridLayout>
-      <p style={{ cursor: "pointer", opacity: "0.68" }} onClick={handleShow}>
+      <span style={{ cursor: "pointer", opacity: "0.68" }} onClick={handleShow}>
         {count === 20 ? "展开" : "收起"}
-      </p>
+      </span>
     </>
   );
 };

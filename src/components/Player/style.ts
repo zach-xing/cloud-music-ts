@@ -1,16 +1,20 @@
 import styled from "styled-components";
 
-export const Block = styled.div`
+/**
+ * 底部播放组件样式
+ */
+export const Block = styled.div<{ height: 64 | 0 }>`
   position: fixed;
   left: 0;
   right: 0;
   bottom: 0;
-  height: 64px;
+  height: ${(props) => props.height}px;
   z-index: 100;
   padding: 0 10vw;
   background-color: rgba(34, 34, 34, 0.86);
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  transition: all 0.5s ease;
 `;
 
 /**
@@ -45,10 +49,15 @@ export const ActionStyleBlock = styled.div`
   justify-content: center;
   align-items: center;
   img {
-    width: 36px;
-    height: 36px;
+    width: 34px;
+    height: 34px;
+    padding: 3px;
+    border-radius: 5px;
     margin: 0 20px;
     cursor: pointer;
+    &:hover {
+      background-color: hsla(0, 0%, 100%, 0.08);
+    }
   }
 `;
 
@@ -115,13 +124,10 @@ export const LeftStyleBlock = styled.div`
   }
 `;
 
-interface IRightStyleBlock {
-  y: number;
-}
 /**
  * 歌词块
  */
-export const RightStyleBlock = styled.div<IRightStyleBlock>`
+export const RightStyleBlock = styled.div<{ y: number }>`
   flex: 1;
   color: white;
   .scroll {
@@ -146,8 +152,15 @@ export const RightStyleBlock = styled.div<IRightStyleBlock>`
  * 隐藏样式块
  */
 export const HiddenStyleBlock = styled.img`
+  width: 36px;
+  height: 36px;
+  padding: 3px;
+  border-radius: 3px;
   position: absolute;
   top: 50px;
   right: 50px;
   cursor: pointer;
+  &:hover {
+    background-color: hsla(0, 0%, 100%, 0.2);
+  }
 `;

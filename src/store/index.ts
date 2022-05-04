@@ -1,14 +1,17 @@
 import React from "react";
-// import playerStore from "./playerStore";
+import playerStore from "./playerStore";
 import userStore from "./userStore";
 
 export const stores = {
-  // playerStore: new playerStore(),
   userStore: new userStore(),
+  playerStore: new playerStore(),
 };
 
-export const StoresContext = React.createContext(stores);
+const StoresContext = React.createContext(stores);
 
+/**
+ * 对外使用的状态管理 hook
+ */
 const useStores = () => React.useContext(StoresContext);
 
 export default useStores;

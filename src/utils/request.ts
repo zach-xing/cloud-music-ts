@@ -15,9 +15,11 @@ const instance = axios.create({
 
 instance.interceptors.request.use(
   (config) => {
-    if (!config.params) config.params = {};
     // 发送请求时携带 cookie
-    config.params.cookie = `MUSIC_U=${getCookie("MUSIC_U")};`;
+    if (getCookie("MUSIC_U") !== null) {
+      if (!config.params) config.params = {};
+      config.params.cookie = `MUSIC_U=${getCookie("MUSIC_U")};`;
+    }
     return config;
   },
   () => {}
