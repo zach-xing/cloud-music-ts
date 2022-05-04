@@ -26,7 +26,7 @@ const Login = () => {
       console.info("Login Success");
       setCookie(res.cookie);
       userStore.loginAction(res.profile, res.token);
-      navigate("/library", { replace: true });
+      navigate("/home", { replace: true });
     }
   };
 

@@ -11,6 +11,7 @@ import BoxSinger from "../../components/BoxSinger";
 import Button from "../../components/Button";
 import GridLayout from "../../components/GridLayout";
 import MV from "../../components/MVComp";
+import useStores from "../../store";
 import HotSongs from "./components/HotSongs";
 import { ArtistInfoDiv } from "./style";
 
@@ -19,12 +20,12 @@ import { ArtistInfoDiv } from "./style";
  */
 const Artist = () => {
   const { id } = useParams();
+  const { playerStore } = useStores();
   const [artist, setArtist] = useState<API.Artist>(); // 歌手信息
   const [hotSongs, setHotSongs] = useState<Array<API.Song>>(); // 热门歌曲列表
   const [hotAlbums, setHotAlbums] = useState<Array<API.Album>>(); // 专辑列表
   const [mvs, setMvs] = useState<Array<API.MV>>(); // MV 列表
   const [simiArtists, setSimiArtists] = useState<Array<API.Artist>>();
-  console.log("%c render", "color: red;font-size: 20px");
 
   useEffect(() => {
     (async () => {
@@ -53,7 +54,9 @@ const Artist = () => {
             {artist?.mvSize}个 MV
           </div>
           <div className="desc">{artist?.briefDesc}</div>
-          <Button>播放</Button>
+          <Button onClick={() => playerStore.setplayQueue(hotSongs || [])}>
+            播放
+          </Button>
         </div>
       </ArtistInfoDiv>
 
@@ -91,7 +94,12 @@ const Artist = () => {
       <h2 style={{ marginTop: "50px" }}>相似歌手</h2>
       <GridLayout>
         {simiArtists?.map((item) => (
-          <BoxSinger key={item.id} id={item.id} name={item.name} picUrl={item.picUrl} />
+          <BoxSinger
+            key={item.id}
+            id={item.id}
+            name={item.name}
+            picUrl={item.picUrl}
+          />
         ))}
       </GridLayout>
     </>

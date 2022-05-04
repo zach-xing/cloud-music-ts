@@ -32,7 +32,7 @@ const Header = observer(() => {
         {routes.map((item) => (
           <StyleNavLink
             key={item.path}
-            href={item.path}
+            onClick={() => navigate(item.path)}
             className={item.path === pathname ? "active" : ""}
           >
             {item.name}

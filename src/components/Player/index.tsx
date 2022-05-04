@@ -146,7 +146,7 @@ const Player = observer(() => {
             onClick={() => playerStore.nextSong()}
           />
         </ActionStyleBlock>
-        
+
         <OtherStyleBlock>
           <div>
             音量：

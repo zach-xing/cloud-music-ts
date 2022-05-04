@@ -5,9 +5,11 @@ import { fetchPlaylistDetail, fetchSongList } from "../../api/playlist";
 import Button from "../../components/Button";
 import VList from "../../components/VList";
 import { StyleInfoBox } from "./style";
+import useStores from "../../store";
 
 const PlayList = () => {
   const { id } = useParams();
+  const { playerStore } = useStores();
   const resizeRef = useRef<any>();
   const [playListDetail, setPlayListDetail] = useState<API.PlayListDetail>();
   const [songs, setSongs] = useState<Array<API.Song>>();
@@ -53,7 +55,9 @@ const PlayList = () => {
             {songs?.length}首歌
           </p>
           <p>{playListDetail?.description}</p>
-          <Button>播放</Button>
+          <Button onClick={() => playerStore.setplayQueue(songs || [])}>
+            播放
+          </Button>
         </div>
       </StyleInfoBox>
 

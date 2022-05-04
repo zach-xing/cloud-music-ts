@@ -2,6 +2,7 @@ import dayjs from "dayjs";
 import { StyleVListItem } from "./style";
 import type { StyleProps } from "./style";
 import { useNavigate } from "react-router-dom";
+import useStores from "../../store";
 
 type IProps = {
   data: API.Song;
@@ -13,11 +14,12 @@ type IProps = {
  */
 const List = (props: IProps) => {
   const navigate = useNavigate();
+  const { playerStore } = useStores();
   const { data } = props;
 
   // 双击播放音乐
   const handleDoubleClick = () => {
-    localStorage.setItem("player", JSON.stringify(data));
+    playerStore.playCurSong(data);
   };
 
   const jumpToArtist = (id: number | undefined) => {

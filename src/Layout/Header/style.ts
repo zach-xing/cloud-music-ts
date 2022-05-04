@@ -36,7 +36,8 @@ export const StyleNavLink = styled("a")`
   text-decoration: none;
   margin: 0 10px;
   padding: 10px;
-  borde-radius: 10px;
+  border-radius: 5px;
+  cursor: pointer;
   &:hover {
     background-color: hsla(0, 0%, 100%, 0.08);
   }
