@@ -29,10 +29,11 @@ yarn start # 启动 Web 端
 - 全屏歌词滚动
 - 底部播放器组件
 - 虚拟列表（VList 组件，目前应用到歌单列表中）
+- 自定义 Button 组件
+- 自定义 Input 组件（onChange 默认有防抖功能）
 
 ## TODO
 
-- 个人页面
 - Message 组件
 - Dialog 组件
 

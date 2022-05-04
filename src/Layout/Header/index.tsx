@@ -4,7 +4,7 @@ import Button from "../../components/Button";
 import Input from "../../components/Input";
 import useStores from "../../store";
 import { isLogined } from "../../utils/auth";
-import { StyleHeader, StyleNav, StyleNavLink, SearchInput } from "./style";
+import { StyleHeader, StyleNav, StyleNavLink } from "./style";
 
 const routes: Array<{ name: string; path: string }> = [
   {

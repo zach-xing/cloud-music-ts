@@ -4,6 +4,7 @@ import type { StyleProps } from "./style";
 import useDebounce from "../../hooks/useDebounce";
 
 interface BaseProps {
+  type?: string;
   defaultValue: string;
   placeholder?: string;
   style?: object;
@@ -22,6 +23,7 @@ const Input: React.FC<IProps> = (props) => {
 
   return (
     <SearchInput
+      type={props.type || "text"}
       width={props.width || "100%"}
       onChange={hanelChange}
       placeholder={props.placeholder || ""}

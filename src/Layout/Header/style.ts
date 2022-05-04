@@ -44,16 +44,3 @@ export const StyleNavLink = styled("a")`
     color: var(--main-fontColor);
   }
 `;
-
-/**
- * 搜索框
- */
-export const SearchInput = styled("input")`
-  width: 200px;
-  height: 32px;
-  outline: none;
-  border-radius: 10px;
-  font-size: 16px;
-  padding: 0 10px;
-  margin-right: 15px;
-`;
