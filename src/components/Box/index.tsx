@@ -27,6 +27,7 @@ interface IProps {
   picUrl: string; // 图片地址
   notes?: string; // 注释
   basePath?: string; // 将要跳转的页面
+  style?: object;
 }
 
 /**
@@ -41,9 +42,9 @@ const Box = (props: IProps) => {
   };
 
   return (
-    <StyleBox>
+    <StyleBox style={props.style}>
       <img
-        src={props.picUrl}
+        src={`${props.picUrl}?param=500y500`}
         alt={props.name || "null"}
         onClick={handleClick}
       />

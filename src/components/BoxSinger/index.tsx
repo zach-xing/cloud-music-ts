@@ -42,7 +42,7 @@ const BoxSinger = (props: IProps) => {
   return (
     <StyleBox>
       <img
-        src={props.picUrl}
+        src={`${props.picUrl}?param=500y500`}
         alt={props.name || "null"}
         onClick={jumpToArtist}
       />

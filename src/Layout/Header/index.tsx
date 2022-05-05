@@ -1,4 +1,5 @@
 import { observer } from "mobx-react-lite";
+import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Button from "../../components/Button";
 import Input from "../../components/Input";
@@ -25,6 +26,14 @@ const Header = observer(() => {
   const { pathname } = useLocation();
   const navigate = useNavigate();
   const { userStore } = useStores();
+  const [search, setSearch] = useState("");
+
+  // 处理搜索
+  const handleSearch = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key.toLowerCase() === "enter" && search.length !== 0) {
+      navigate(`/search?word=${search}`);
+    }
+  };
 
   return (
     <StyleHeader>
@@ -40,11 +49,14 @@ const Header = observer(() => {
         ))}
       </StyleNav>
       <div style={{ display: "flex", alignItems: "center", color: "white" }}>
-        {/* <SearchInput placeholder="搜索" /> */}
         <Input
           placeholder="搜索"
-          defaultValue={""}
+          defaultValue={search}
           style={{ marginRight: "10px" }}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            setSearch(e.target.value)
+          }
+          onKeyUp={handleSearch}
         />
         {isLogined() ? (
           <img

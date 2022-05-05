@@ -12,6 +12,7 @@ import Artist from "../../pages/Artist";
 import Album from "../../pages/Album";
 import MV from "../../pages/MV";
 import User from "../../pages/User";
+import Search from "../../pages/Search";
 
 const Main = styled("main")`
   min-height: calc(100vh - 64px);
@@ -73,6 +74,10 @@ const Container = () => {
     {
       path: "/user",
       element: <User />,
+    },
+    {
+      path: "/search",
+      element: <Search />,
     },
     {
       path: "*",

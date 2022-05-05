@@ -118,6 +118,7 @@ declare namespace API {
     name: string;
     artistName: string;
     imgurl: string;
+    cover?: string; // 也是图片url
     publishTime: string;
     // artist: Artist;
   };

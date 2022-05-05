@@ -9,6 +9,7 @@ interface BaseProps {
   placeholder?: string;
   style?: object;
   onChange?: React.ChangeEventHandler<HTMLElement>;
+  onKeyUp?: any;
 }
 
 type IProps = BaseProps & StyleProps;
@@ -26,6 +27,7 @@ const Input: React.FC<IProps> = (props) => {
       type={props.type || "text"}
       width={props.width || "100%"}
       onChange={hanelChange}
+      onKeyUp={props.onKeyUp}
       placeholder={props.placeholder || ""}
       defaultValue={props.defaultValue}
       style={props.style}
