@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import {
   fetchSearchAlbums,
   fetchSearchArtists,
@@ -20,15 +20,15 @@ import { SongGridLayout } from "./style";
  */
 const Search = () => {
   const [params] = useSearchParams();
+  const keywords = params.get("word") || "陈奕迅"; // 万一有人乱搞，总得给他显示点东西吧
+  const navigate = useNavigate();
   const [artists, setArtists] = useState<Array<API.Artist>>([]);
   const [albums, setAlbums] = useState<Array<API.Album>>([]);
   const [songs, setSongs] = useState<Array<API.Song>>([]);
   const [playList, setPlayList] = useState<Array<API.PlayListItem>>([]);
   const [MVs, setMVs] = useState<Array<API.MV>>([]);
 
-  console.log(params.get("word"));
   useEffect(() => {
-    const keywords = params.get("word") || "陈奕迅"; // 万一有人乱搞，总得给他显示点东西吧
     (async () => {
       const data = await Promise.all([
         fetchSearchArtists({ keywords, limit: 5 }),
@@ -42,13 +42,15 @@ const Search = () => {
       setSongs(data[2].result.songs);
       setPlayList(data[3].result.playlists);
       setMVs(data[4].result.mvs);
-      console.log(data[4].result.mvs);
     })();
-  }, [params]);
+  }, [keywords]);
 
   return (
     <>
-      <Title title="艺人" />
+      <Title
+        title="艺人"
+        onMoreClick={() => navigate(`/search/artists?word=${keywords}`)}
+      />
       <GridLayout>
         {artists.length !== 0
           ? artists.map((item) => (
@@ -62,7 +64,10 @@ const Search = () => {
           : null}
       </GridLayout>
 
-      <Title title="专辑" />
+      <Title
+        title="专辑"
+        onMoreClick={() => navigate(`/search/albums?word=${keywords}`)}
+      />
       <GridLayout>
         {albums.length !== 0
           ? albums.map((item) => (
@@ -76,7 +81,10 @@ const Search = () => {
           : null}
       </GridLayout>
 
-      <Title title="歌曲" />
+      <Title
+        title="歌曲"
+        onMoreClick={() => navigate(`/search/songs?word=${keywords}`)}
+      />
       <SongGridLayout>
         {songs.length !== 0
           ? songs.map((item) => <Song key={item.id} data={item} />)
@@ -99,7 +107,10 @@ const Search = () => {
           : null}
       </GridLayout>
 
-      <Title title="歌单" />
+      <Title
+        title="歌单"
+        onMoreClick={() => navigate(`/search/playlists?word=${keywords}`)}
+      />
       <GridLayout>
         {playList.length !== 0
           ? playList.map((item) => (

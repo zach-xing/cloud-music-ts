@@ -5,7 +5,11 @@ import request from "../utils/request";
  * @param params.keywords 关键字
  * @returns
  */
-export function fetchSearchSongs(params: { keywords: string; limit: number }) {
+export function fetchSearchSongs(params: {
+  keywords: string;
+  limit: number;
+  offset?: number;
+}) {
   return request<{ result: { songs: Array<API.Song> } }>({
     url: "/cloudsearch",
     method: "GET",
@@ -18,7 +22,11 @@ export function fetchSearchSongs(params: { keywords: string; limit: number }) {
  * @param params.keywords 关键字
  * @returns
  */
-export function fetchSearchAlbums(params: { keywords: string; limit: number }) {
+export function fetchSearchAlbums(params: {
+  keywords: string;
+  limit: number;
+  offset?: number;
+}) {
   return request<{ result: { albums: Array<API.Album> } }>({
     url: "/search",
     method: "GET",
@@ -37,13 +45,14 @@ export function fetchSearchAlbums(params: { keywords: string; limit: number }) {
 export function fetchSearchArtists(params: {
   keywords: string;
   limit: number;
+  offset?: number;
 }) {
   return request<{ result: { artists: Array<API.Artist> } }>({
     url: "/search",
     method: "GET",
     params: {
-      ...params,
       type: 100,
+      ...params,
     },
   });
 }
@@ -56,6 +65,7 @@ export function fetchSearchArtists(params: {
 export function fetchSearchPlayList(params: {
   keywords: string;
   limit: number;
+  offset?: number;
 }) {
   return request<{ result: { playlists: Array<API.PlayListItem> } }>({
     url: "/search",
@@ -72,7 +82,11 @@ export function fetchSearchPlayList(params: {
  * @param params.keywords 关键字
  * @returns
  */
-export function fetchSearchMV(params: { keywords: string; limit: number }) {
+export function fetchSearchMV(params: {
+  keywords: string;
+  limit: number;
+  offset?: number;
+}) {
   return request<{ result: { mvs: Array<API.MV> } }>({
     url: "/search",
     method: "GET",

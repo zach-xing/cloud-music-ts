@@ -13,6 +13,11 @@ import Album from "../../pages/Album";
 import MV from "../../pages/MV";
 import User from "../../pages/User";
 import Search from "../../pages/Search";
+import SearchAlbums from "../../pages/Search/SearchAlbums";
+import SearchArtists from "../../pages/Search/SearchArtists";
+import SearchSongs from "../../pages/Search/SearchSongs";
+import SearchMVs from "../../pages/Search/SearchMVs";
+import SearchPlaylists from "../../pages/Search/SearchPlaylists";
 
 const Main = styled("main")`
   min-height: calc(100vh - 64px);
@@ -77,7 +82,32 @@ const Container = () => {
     },
     {
       path: "/search",
-      element: <Search />,
+      children: [
+        {
+          index: true,
+          element: <Search />,
+        },
+        {
+          path: "artists",
+          element: <SearchArtists />,
+        },
+        {
+          path: "albums",
+          element: <SearchAlbums />,
+        },
+        {
+          path: "songs",
+          element: <SearchSongs />,
+        },
+        {
+          path: "mvs",
+          element: <SearchMVs />,
+        },
+        {
+          path: "playlists",
+          element: <SearchPlaylists />,
+        },
+      ],
     },
     {
       path: "*",
@@ -85,6 +115,7 @@ const Container = () => {
     },
   ]);
 
+  window.scrollTo(0, 0);
   return <Main>{element}</Main>;
 };
 
