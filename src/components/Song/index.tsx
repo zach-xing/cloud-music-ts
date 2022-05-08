@@ -1,5 +1,6 @@
 import React from "react";
 import useStores from "../../store";
+import LazyLoadImg from "../LazyLoadImg";
 import { StyleDiv } from "./style";
 
 interface IProps {
@@ -18,8 +19,8 @@ const SongItem: React.FC<IProps> = (props) => {
 
   return (
     <StyleDiv>
-      <img
-        src={data.al ? data.al?.picUrl : data.album?.picUrl}
+      <LazyLoadImg
+        url={data.al ? data.al.picUrl : data.album!.picUrl}
         alt={data.name}
         onDoubleClick={playMusic}
       />

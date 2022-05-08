@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import LazyLoadImg from "../LazyLoadImg";
 
 /** Box 的自定义样式组件 */
 const StyleBox = styled.div`
@@ -43,8 +44,8 @@ const Box = (props: IProps) => {
 
   return (
     <StyleBox style={props.style}>
-      <img
-        src={`${props.picUrl}?param=500y500`}
+      <LazyLoadImg
+        url={`${props.picUrl}?param=500y500`}
         alt={props.name || "null"}
         onClick={handleClick}
       />

@@ -31,6 +31,7 @@ yarn start # 启动 Web 端
 - 虚拟列表（VList 组件，目前应用到歌单列表中）
 - 自定义 Button 组件
 - 自定义 Input 组件（onChange 默认有防抖功能）
+- 自定义 LazyLoadImg 组件（图片懒加载）
 
 ## TODO
 

@@ -3,6 +3,7 @@ import { StyleVListItem } from "./style";
 import type { StyleProps } from "./style";
 import { useNavigate } from "react-router-dom";
 import useStores from "../../store";
+import LazyLoadImg from "../LazyLoadImg";
 
 type IProps = {
   data: API.Song;
@@ -38,7 +39,7 @@ const List = (props: IProps) => {
       translateY={props.translateY}
       onDoubleClick={() => handleDoubleClick()}
     >
-      <img src={data.al && data.al.picUrl} alt={data.name} />
+      <LazyLoadImg url={data.al ? data.al.picUrl : ""} alt={data.name} />
       <div className="info">
         <div className="songName">{data.name}</div>
         <div>

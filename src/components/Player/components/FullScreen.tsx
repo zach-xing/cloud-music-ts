@@ -1,5 +1,10 @@
 import React from "react";
-import { FullStyleBlock, HiddenStyleBlock, LeftStyleBlock, RightStyleBlock } from "../style";
+import {
+  FullStyleBlock,
+  HiddenStyleBlock,
+  LeftStyleBlock,
+  RightStyleBlock,
+} from "../style";
 import fullscreenExitSvg from "../../../assets/icons/fullscreen-exit.svg";
 
 interface IProps {

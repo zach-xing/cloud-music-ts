@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import LazyLoadImg from "../LazyLoadImg";
 import { StyleMVDiv } from "./style";
 
 /**
@@ -14,8 +15,8 @@ const MVComp: React.FC<API.MV> = (props) => {
 
   return (
     <StyleMVDiv>
-      <img
-        src={`${props.imgurl}?param=464y260`}
+      <LazyLoadImg
+        url={`${props.imgurl}?param=464y260`}
         onClick={() => jumpToMV(props.id)}
         alt={props.name}
       />
