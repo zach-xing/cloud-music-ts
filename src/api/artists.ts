@@ -56,3 +56,13 @@ export function fetchSimilarArtists(id: string) {
     params: { id },
   });
 }
+
+/**
+ * 获取用户收藏的歌手列表（需登录）
+ */
+export function fetchCollectArtists() {
+  return request<{ data: Array<API.Artist> }>({
+    url: "/artist/sublist",
+    method: "GET",
+  });
+}

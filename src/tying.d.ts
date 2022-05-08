@@ -114,7 +114,7 @@ declare namespace API {
 
   /** MV 信息 */
   type MV = {
-    id: number;
+    id: number | string;
     name: string;
     artistName: string;
     imgurl: string;
@@ -122,4 +122,16 @@ declare namespace API {
     publishTime: string;
     // artist: Artist;
   };
+
+  /** 视频信息 */
+  type Video = {
+    vid: string;
+    title: string;
+    coverUrl: string;
+    playTime: number;
+    creator: {
+      userId: number;
+      userName: string;
+    }[];
+  }
 }

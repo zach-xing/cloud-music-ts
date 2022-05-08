@@ -14,3 +14,10 @@ export function fetchUserPlaylists(params: { uid: number }) {
     params: params,
   });
 }
+
+// export function fetchUserCollect() {
+//   return request({
+//     url: "/artist/sublist",
+//     method: "GET",
+//   });
+// }

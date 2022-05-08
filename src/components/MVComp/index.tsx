@@ -8,7 +8,7 @@ import { StyleMVDiv } from "./style";
 const MVComp: React.FC<API.MV> = (props) => {
   const navigate = useNavigate();
 
-  const jumpToMV = (id: number) => {
+  const jumpToMV = (id: number| string) => {
     navigate(`/mv/${id}`);
   };
 

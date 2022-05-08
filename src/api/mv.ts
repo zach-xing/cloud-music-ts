@@ -41,3 +41,13 @@ export function fetchMVURL(params: { id: number; r: number }) {
     params,
   });
 }
+
+/**
+ * 获取用户收藏的 MV 和视频列表（需登录）
+ */
+export function fetchCollectMVs() {
+  return request<{ data: Array<API.Video> }>({
+    url: "/mv/sublist",
+    method: "GET",
+  });
+}

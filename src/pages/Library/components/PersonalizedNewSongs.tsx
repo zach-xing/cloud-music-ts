@@ -25,7 +25,7 @@ const StyleDiv = styled.div`
  * 推荐的歌单
  * @returns
  */
-const PersonalizedPlayList = () => {
+const PersonalizedNewSongs = () => {
   const [newSongs, setNewSongs] = useState<Array<API.Song>>();
 
   useEffect(() => {
@@ -51,4 +51,4 @@ const PersonalizedPlayList = () => {
   );
 };
 
-export default PersonalizedPlayList;
+export default PersonalizedNewSongs;

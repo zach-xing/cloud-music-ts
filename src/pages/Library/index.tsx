@@ -4,15 +4,16 @@ import { observer } from "mobx-react-lite";
 import useStores from "../../store";
 import { ProfileHeader, SectionOne } from "./style";
 import PersonalPlayList from "./components/PersonalPlayList";
-import PersonalizedPlayList from "./components/PersonalizedPlayList";
+import PersonalizedNewSongs from "./components/PersonalizedNewSongs";
 import { fetchUserPlaylists } from "../../api/user";
+import PersonalCollect from "./components/PersonalCollect";
 
 /**
  * 音乐库
  */
 const Library = observer(() => {
   const navigate = useNavigate();
-  const [playLists, setPlayLists] = useState<Array<API.PlayListItem>>();
+  const [playLists, setPlayLists] = useState<Array<API.PlayListItem>>([]);
   const [loveList, setLoveList] = useState<API.PlayListItem>();
   const { userStore } = useStores();
   const profile: API.Profile = userStore.profile;
@@ -59,11 +60,13 @@ const Library = observer(() => {
           <h2>我喜欢的音乐</h2>
         </div>
         <div className="songs">
-          <PersonalizedPlayList />
+          <PersonalizedNewSongs />
         </div>
       </SectionOne>
 
-      <PersonalPlayList playLists={playLists!} />
+      <PersonalPlayList playLists={playLists} />
+
+      <PersonalCollect />
     </>
   );
 });

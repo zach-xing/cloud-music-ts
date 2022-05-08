@@ -12,9 +12,9 @@ const Tag = styled.div<IProps>`
   text-align: center;
   background-color: ${(props) => (props.active ? "#bbcdff" : "#323232")};
   padding: 5px 10px;
-  color: #787878;
+  color: ${(props) => (props.active ? "#000" : "#787878")};
   font-size: 18px;
-  border-radius: 10px;
+  border-radius: 5px;
   cursor: pointer;
   transition: all 0.3s ease;
   :hover {

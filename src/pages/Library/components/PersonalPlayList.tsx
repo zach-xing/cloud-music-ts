@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Box from "../../../components/Box";
 import GridLayout from "../../../components/GridLayout";
 
-const SectionTwo = styled.div`
+const Section = styled.div`
   select {
     font-size: 18px;
     color: #e4e4e4;
@@ -33,7 +33,7 @@ const PersonalPlayList: React.FC<IProps> = (props) => {
   };
 
   return (
-    <SectionTwo>
+    <Section>
       <select onChange={handleChangePlaylist}>
         <option value="all">全部歌单</option>
         <option value="created">创建的歌单</option>
@@ -59,7 +59,7 @@ const PersonalPlayList: React.FC<IProps> = (props) => {
             />
           ))}
       </GridLayout>
-    </SectionTwo>
+    </Section>
   );
 };
 

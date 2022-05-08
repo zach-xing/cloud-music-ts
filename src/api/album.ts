@@ -1,5 +1,8 @@
 import request from "../utils/request";
 
+/**
+ * 根据 id 获取专辑
+ */
 export function fetchAlbumById(params: { id: number }) {
   return request<{ album: API.Album; songs: Array<API.Song> }>({
     url: "/album",
@@ -36,6 +39,16 @@ export function fetchAlbum(params: {
 export function fetchNewAlbum(area: string = "All", limit: number = 10) {
   return request<{ albums: Array<API.Album> }>({
     url: `/album/new?area=${area}&limit=${limit}`,
+    method: "GET",
+  });
+}
+
+/**
+ * 获取用户收藏的专辑（需登录）
+ */
+export function fetchCollectAlbums() {
+  return request<{ data: Array<API.Album> }>({
+    url: "/album/sublist",
     method: "GET",
   });
 }
