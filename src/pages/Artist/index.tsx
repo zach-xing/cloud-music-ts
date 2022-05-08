@@ -9,6 +9,7 @@ import {
 import Box from "../../components/Box";
 import BoxSinger from "../../components/BoxSinger";
 import Button from "../../components/Button";
+import Empty from "../../components/Empty";
 import GridLayout from "../../components/GridLayout";
 import MV from "../../components/MVComp";
 import useStores from "../../store";
@@ -22,10 +23,10 @@ const Artist = () => {
   const { id } = useParams();
   const { playerStore } = useStores();
   const [artist, setArtist] = useState<API.Artist>(); // 歌手信息
-  const [hotSongs, setHotSongs] = useState<Array<API.Song>>(); // 热门歌曲列表
-  const [hotAlbums, setHotAlbums] = useState<Array<API.Album>>(); // 专辑列表
-  const [mvs, setMvs] = useState<Array<API.MV>>(); // MV 列表
-  const [simiArtists, setSimiArtists] = useState<Array<API.Artist>>();
+  const [hotSongs, setHotSongs] = useState<Array<API.Song>>([]); // 热门歌曲列表
+  const [hotAlbums, setHotAlbums] = useState<Array<API.Album>>([]); // 专辑列表
+  const [mvs, setMvs] = useState<Array<API.MV>>([]); // MV 列表
+  const [simiArtists, setSimiArtists] = useState<Array<API.Artist>>([]);
 
   useEffect(() => {
     (async () => {
@@ -64,44 +65,56 @@ const Artist = () => {
 
       {/* 专辑 */}
       <h2 style={{ marginTop: "50px" }}>专辑</h2>
-      <GridLayout>
-        {hotAlbums?.map((item) => (
-          <Box
-            key={item.id}
-            id={item.id}
-            name={item.name}
-            picUrl={item.picUrl}
-          />
-        ))}
-      </GridLayout>
+      {hotAlbums.length > 0 ? (
+        <GridLayout>
+          {hotAlbums?.map((item) => (
+            <Box
+              key={item.id}
+              id={item.id}
+              name={item.name}
+              picUrl={item.picUrl}
+            />
+          ))}
+        </GridLayout>
+      ) : (
+        <Empty />
+      )}
 
       {/* MV */}
       <h2 style={{ marginTop: "50px" }}>MVs</h2>
-      <GridLayout>
-        {mvs?.map((item) => (
-          <MV
-            key={item.id}
-            id={item.id}
-            name={item.name}
-            artistName={item.artistName}
-            imgurl={item.imgurl}
-            publishTime={item.publishTime}
-          />
-        ))}
-      </GridLayout>
+      {mvs.length > 0 ? (
+        <GridLayout>
+          {mvs?.map((item) => (
+            <MV
+              key={item.id}
+              id={item.id}
+              name={item.name}
+              artistName={item.artistName}
+              imgurl={item.imgurl}
+              publishTime={item.publishTime}
+            />
+          ))}
+        </GridLayout>
+      ) : (
+        <Empty />
+      )}
 
       {/* 相似歌手 */}
       <h2 style={{ marginTop: "50px" }}>相似歌手</h2>
-      <GridLayout>
-        {simiArtists?.map((item) => (
-          <BoxSinger
-            key={item.id}
-            id={item.id}
-            name={item.name}
-            picUrl={item.picUrl}
-          />
-        ))}
-      </GridLayout>
+      {simiArtists.length > 0 ? (
+        <GridLayout>
+          {simiArtists?.map((item) => (
+            <BoxSinger
+              key={item.id}
+              id={item.id}
+              name={item.name}
+              picUrl={item.picUrl}
+            />
+          ))}
+        </GridLayout>
+      ) : (
+        <Empty />
+      )}
     </>
   );
 };
