@@ -17,14 +17,14 @@ export function setCookie(str: string) {
  * 获取 Cookie 信息
  */
 export function getCookie(key: string) {
-  return Cookies.get(key) ?? localStorage.getItem(`cookie-${key}`);
+  return Cookies.get(`cookie-${key}`) ?? localStorage.getItem(`cookie-${key}`);
 }
 
 /**
  * 移除 Cookie
  */
 export function removeCookie(key: string): void {
-  Cookies.remove(key);
+  Cookies.remove(`cookie-${key}`);
   localStorage.removeItem(`cookie-${key}`);
 }
 

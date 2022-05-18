@@ -26,6 +26,7 @@ const Header = observer(() => {
   const { pathname } = useLocation();
   const navigate = useNavigate();
   const { userStore } = useStores();
+  const avatarUrl = userStore.profile?.avatarUrl;
   const [search, setSearch] = useState("");
 
   // 处理搜索
@@ -60,7 +61,7 @@ const Header = observer(() => {
         />
         {isLogined() ? (
           <img
-            src={userStore.profile.avatarUrl}
+            src={avatarUrl}
             alt="个人头像"
             onClick={() => navigate("/user")}
           />

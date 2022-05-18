@@ -1,7 +1,7 @@
 import { makeAutoObservable } from "mobx";
 
 class UserStore {
-  private _profile: API.Profile | undefined;
+  private _profile: API.Profile | any;
   private _token: string = ""; // Token
 
   constructor() {

@@ -14,21 +14,23 @@ const Login = () => {
   const { userStore } = useStores();
 
   // 登录操作
-  const handleLogin = async () => {
+  function handleLogin() {
     if (account === "" || password === "") {
-      alert("不能为空！")
+      alert("不能为空！");
       return;
     }
-    const res = await loginWithPhone(account, password);
-    if (res.code !== 200) {
-      alert("登录失败");
-    } else {
-      console.info("Login Success");
-      setCookie(res.cookie);
-      userStore.loginAction(res.profile, res.token);
-      navigate("/home", { replace: true });
-    }
-  };
+    (async () => {
+      const res = await loginWithPhone(account, password);
+      if (res.code !== 200) {
+        alert("登录失败");
+      } else {
+        console.info("Login Success");
+        setCookie(res.cookie);
+        userStore.loginAction(res.profile, res.token);
+      }
+    })();
+    navigate("/", { replace: true });
+  }
 
   // 输入手机号
   const handleInputAccount = (e: React.ChangeEvent<HTMLInputElement>) => {
