@@ -20,10 +20,29 @@ export const StyleHeader = styled("header")`
 `;
 
 /**
+ * 头部组件的 操作按钮
+ */
+export const HeaderOption = styled("div")`
+  flex: 1;
+  color: white;
+  display: flex;
+  .iconButton {
+    padding: 3px;
+    margin: 0 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.3);
+    }
+  }
+`;
+
+/**
  * 自定义 Nav
  */
 export const StyleNav = styled("div")`
   color: white;
+  flex: 1;
 `;
 
 /**

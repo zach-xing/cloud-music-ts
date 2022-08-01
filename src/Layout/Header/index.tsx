@@ -1,11 +1,12 @@
 import { observer } from "mobx-react-lite";
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import Button from "../../components/Button";
 import Input from "../../components/Input";
 import useStores from "../../store";
 import { isLogined } from "../../utils/auth";
-import { StyleHeader, StyleNav, StyleNavLink } from "./style";
+import { HeaderOption, StyleHeader, StyleNav, StyleNavLink } from "./style";
 
 const routes: Array<{ name: string; path: string }> = [
   {
@@ -38,6 +39,14 @@ const Header = observer(() => {
 
   return (
     <StyleHeader>
+      <HeaderOption>
+        <div className="iconButton" onClick={() => navigate(-1)}>
+          <FiChevronLeft size="25px" />
+        </div>
+        <div className="iconButton" onClick={() => navigate(1)}>
+          <FiChevronRight size="25px" />
+        </div>
+      </HeaderOption>
       <StyleNav>
         {routes.map((item) => (
           <StyleNavLink
@@ -49,7 +58,14 @@ const Header = observer(() => {
           </StyleNavLink>
         ))}
       </StyleNav>
-      <div style={{ display: "flex", alignItems: "center", color: "white" }}>
+      <div
+        style={{
+          flex: 1,
+          display: "flex",
+          alignItems: "center",
+          color: "white",
+        }}
+      >
         <Input
           placeholder="搜索"
           defaultValue={search}
