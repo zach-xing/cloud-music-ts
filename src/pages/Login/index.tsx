@@ -14,13 +14,14 @@ const Login = () => {
   const { userStore } = useStores();
 
   // 登录操作
-  function handleLogin() {
+  async function handleLogin() {
     if (account === "" || password === "") {
       alert("不能为空！");
       return;
     }
-    (async () => {
+    try {
       const res = await loginWithPhone(account, password);
+      console.log('res', res);
       if (res.code !== 200) {
         alert("登录失败");
       } else {
@@ -28,7 +29,10 @@ const Login = () => {
         setCookie(res.cookie);
         userStore.loginAction(res.profile, res.token);
       }
-    })();
+    } catch (error: any) {
+      console.log(error);
+      alert("登录失败");
+    }
     navigate("/", { replace: true });
   }
 

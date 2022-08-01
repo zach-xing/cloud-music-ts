@@ -10,8 +10,16 @@ export function loginWithPhone(phone: string, password: string) {
     token: string;
     profile: API.Profile;
   }>({
-    url: `/login/cellphone?phone=${phone}&password=${password}`,
-    method: "POST",
+    url: `/login/cellphone`,
+    method: "GET",
+    headers: {
+      Origin: "*",
+      Referer: "*",
+    },
+    params: {
+      phone,
+      password,
+    },
   });
 }
 
@@ -22,5 +30,5 @@ export function logout() {
   return request({
     url: `/logout`,
     method: "POST",
-  })
+  });
 }

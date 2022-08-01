@@ -20,6 +20,7 @@ instance.interceptors.request.use(
       if (!config.params) config.params = {};
       config.params.cookie = `MUSIC_U=${getCookie("MUSIC_U")};`;
     }
+    // config.params.timestamp = Date.now();
     return config;
   },
   () => {}
