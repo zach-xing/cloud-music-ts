@@ -12,10 +12,6 @@ export function loginWithPhone(phone: string, password: string) {
   }>({
     url: `/login/cellphone`,
     method: "GET",
-    headers: {
-      Origin: "*",
-      Referer: "*",
-    },
     params: {
       phone,
       password,
