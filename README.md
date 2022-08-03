@@ -4,6 +4,8 @@
 
 后端数据采用 [NeteaseCloudMusicApi](https://github.com/Binaryify/NeteaseCloudMusicApi) 提供的服务。
 
+（注意：因为 API 提供的服务有时候并不稳定，会造成有时候登录不进去）
+
 ## 启动
 
 ```bash
@@ -43,16 +45,32 @@ yarn start # 启动 Web 端
 
 ## 项目部分截图
 
-> 以下部分 UI 还会更改
+> 以下部分 UI 可能还会更改
 
 首页
 
-![](./docs/img/img01.png)
+![首页](./docs/img/img01.png)
 
 发现
 
-![](./docs/img/img02.png)
+![发现](./docs/img/img02.png)
 
-音乐库
+登录界面
 
-![](./docs/img/img03.png)
+![登录界面](./docs/img/login.png)
+
+音乐库（需要已登录才能访问）
+
+![音乐库](./docs/img/img03.png)
+
+搜索页面
+
+![搜索页面](./docs/img/search.png)
+
+歌手介绍
+
+![歌手介绍](./docs/img/artist-desc.png)
+
+全屏歌词滚动
+
+![全屏歌词滚动](./docs/img/fill-screen-song.png)
